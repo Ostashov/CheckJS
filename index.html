@@ -1,15 +1,22 @@
 ﻿<html>
 <head>
-	<script type="text/javascript" src="js/main.js"></script>
+	
 </head>
 <body>
-	
 	<form action='' method=post enctype=multipart/form-data>
-	Content<br><textarea rows="10" name="content" cols="50" rows="45" ></textarea><br>
+	Content<br><textarea rows="10" name="content" cols="50" rows="45" >function sum(number) {
+	var result = 0;
+	for (var i=0; i<number.length; i++) {
+		result = result + +number[i];
+	}
+	return	result;
+}</textarea><br>
 	<input type=submit class='button' value='Submit'>
 	</form>
 	<table>
 	</table>
+	
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>	
 	
