@@ -4,10 +4,19 @@
 	<script type="text/javascript" src="js/problems/1-10.js"></script>
 </head>
 <body>
-	<script>
-		document.body.innerHTML = document.body.innerHTML + problems[1].statement;
-	</script><br>
 	<form action='' method=post enctype=multipart/form-data>
+	<select name="ProblemId" onchange="ShowStatement(this.value)">
+		<option>Выберите задачу</option>
+	</select>
+	<script>
+		var select = document.getElementsByName('ProblemId')[0];
+		for (var i = 1; i < problems.length; i++) {
+			select.innerHTML = select.innerHTML + '<option value="' + i + '">' + i + '</option>';
+		}
+	</script>
+	<div id="ProblemStatement">
+	</div>
+	
 	<i>Code:</i><br><textarea rows="10" name="content" cols="50" rows="45" >function sum(number) {
 	var result = 0;
 	for (var i=0; i<number.length; i++) {

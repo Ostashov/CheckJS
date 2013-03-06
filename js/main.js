@@ -1,8 +1,13 @@
-﻿function TestProblem (tests, code) {
+﻿function ShowStatement(id) {
+	var statement = document.getElementById('ProblemStatement');
+	statement.innerHTML = statement.innerHTML + problems[id].statement;
+}
+
+function TestProblem (tests, code) {
 	var user_answer =[];
 	var result = [];
 	eval(code);
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < tests.length; i++) {
 		if (sum(tests[i].data) === tests[i].answer) {
 			result[i] = 'OK';
 		} else {
@@ -34,7 +39,7 @@ function PrintResultsTable(tests, report) {
 		<td>Правильный ответ</td>\
 		<td>Результат</td>\
 		</tr>";
-		for (i = 0; i < 4; i++) {
+		for (i = 0; i < tests.length; i++) {
 			table.innerHTML = table.innerHTML + "<tr>\
 		<td>" + (i+1) + "</td>\
 		<td>" + tests[i].data + "</td>\
