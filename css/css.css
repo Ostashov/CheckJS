@@ -3,6 +3,7 @@ body {
 }
 
 .ProblemStatement {
+	width: 50%;
 	margin-top: 10px;
 	margin-left: 0px;
 	margin-right: 10px;
@@ -10,6 +11,7 @@ body {
 }
 
 textarea {
+	width: 50%;
 	resize: none;
 	padding: 5px;
 	border: 1px solid #959595;
@@ -30,4 +32,9 @@ td {
 	padding: 5px; 
     border: 1px solid #000;
 	margin: 0px;
+}
+
+.TableHead {
+	background: #e5e5e5;
+	text-align: center;
 }

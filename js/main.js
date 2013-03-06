@@ -2,11 +2,17 @@
 	var statement = document.getElementsByClassName('ProblemStatement')[0];
 	if (id > 0) {
 		statement.innerHTML = statement.innerHTML + problems[id].statement;
+		table.innerHTML = '';
 	} else {
 		statement.innerHTML = '';
 	}
 }
 
+var select = document.getElementsByName('ProblemId')[0];
+for (var i = 1; i < problems.length; i++) {
+	select.innerHTML = select.innerHTML + '<option value="' + i + '">' + i + '</option>';
+}
+			
 function TestProblem (tests, code) {
 	var user_answer =[];
 	var result = [];
@@ -32,7 +38,7 @@ button.onclick = function() {
 		var report = TestProblem(problems[id].tests, code);
 		PrintResultsTable(problems[id].tests, report);
 	} else {
-		table.innerHTML = '* Выберите задачу.';
+		table.innerHTML = '* Select problem.';
 	}
 	
 	return false;
@@ -40,11 +46,11 @@ button.onclick = function() {
 
 function PrintResultsTable(tests, report) {
 	table.innerHTML = "<tr>\
-		<td style='background: #e5e5e5;'><center>Тест</center></td>\
-		<td style='background: #e5e5e5;'><center>Вводные данные</center></td>\
-		<td style='background: #e5e5e5;'><center>Ответ</center></td>\
-		<td style='background: #e5e5e5;'><center>Правильный ответ</center></td>\
-		<td style='background: #e5e5e5;'><center>Результат</center></td>\
+		<td class='TableHead'>Test</td>\
+		<td class='TableHead'>Data</td>\
+		<td class='TableHead'>User response</td>\
+		<td class='TableHead'>Answer</td>\
+		<td class='TableHead'>Result</td>\
 		</tr>";
 		for (i = 0; i < tests.length; i++) {
 			table.innerHTML = table.innerHTML + "<tr>\
