@@ -1,0 +1,33 @@
+body {
+	font: 14px Georgia;
+}
+
+.ProblemStatement {
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+textarea {
+	resize: none;
+	padding: 5px;
+	border: 1px solid #959595;
+	border-radius: 10px;
+}
+
+textarea:focus {
+	outline: none;
+	border: 1px dashed #00aeef;
+	border-radius: 10px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	padding: 5px; 
+    border: 1px solid #000;
+	margin: 0px;
+}

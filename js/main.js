@@ -1,5 +1,5 @@
 ﻿function ShowStatement(id) {
-	var statement = document.getElementById('ProblemStatement');
+	var statement = document.getElementsByClassName('ProblemStatement')[0];
 	statement.innerHTML = statement.innerHTML + problems[id].statement;
 }
 
@@ -31,7 +31,7 @@ button.onclick = function() {
 
 function PrintResultsTable(tests, report) {
 	var table = document.getElementsByTagName('table')[0];
-	table.setAttribute('border', '1');
+	//table.setAttribute('border', '1');
 	table.innerHTML = "<tr>\
 		<td>#</td>\
 		<td>Вводные данные</td>\
@@ -45,7 +45,7 @@ function PrintResultsTable(tests, report) {
 		<td>" + tests[i].data + "</td>\
 		<td>" + report.user_answer[i] + "</td>\
 		<td>" + tests[i].answer + "</td>\
-		<td>" + report.result[i] + "</td>\
+		<td><center>" + report.result[i] + "</center></td>\
 		</tr>";
 		}
 	document.body.appendChild(table);
