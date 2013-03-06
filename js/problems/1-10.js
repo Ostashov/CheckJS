@@ -7,6 +7,6 @@ problems[1] = {
 
 problems[2] = {
 	"func": "sum",
-	"tests": [{"data":"100", "answer":5050}, {"data":"999999", "answer":1783293664}, {"data":"111111111", "answer":882421820}],
+	"tests": [{"data":"100", "answer":5050}, {"data":"999999", "answer":499999500000}, {"data":"111111111", "answer":6172839549382716}],
 	"statement": "Calculate the sum from 1 to N."
 }
