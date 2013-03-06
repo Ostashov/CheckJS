@@ -1,6 +1,10 @@
 ﻿function ShowStatement(id) {
 	var statement = document.getElementsByClassName('ProblemStatement')[0];
-	statement.innerHTML = statement.innerHTML + problems[id].statement;
+	if (id > 0) {
+		statement.innerHTML = statement.innerHTML + problems[id].statement;
+	} else {
+		statement.innerHTML = '';
+	}
 }
 
 function TestProblem (tests, code) {
@@ -18,26 +22,29 @@ function TestProblem (tests, code) {
 	return {"result":result, "user_answer":user_answer};
 }
 
-
 var button = document.getElementsByTagName('input')[0];
-var id = 1;
+var table = document.getElementsByTagName('table')[0];
+
 button.onclick = function() {
+	var id = select.value;
 	var code = document.getElementsByName('content')[0].value;
-	var report = TestProblem(problems[id].tests, code);
-	PrintResultsTable(problems[id].tests, report);
+	if (id > 0) {
+		var report = TestProblem(problems[id].tests, code);
+		PrintResultsTable(problems[id].tests, report);
+	} else {
+		table.innerHTML = '* Выберите задачу.';
+	}
 	
 	return false;
 }
 
 function PrintResultsTable(tests, report) {
-	var table = document.getElementsByTagName('table')[0];
-	//table.setAttribute('border', '1');
 	table.innerHTML = "<tr>\
-		<td>#</td>\
-		<td>Вводные данные</td>\
-		<td>Ответ</td>\
-		<td>Правильный ответ</td>\
-		<td>Результат</td>\
+		<td style='background: #e5e5e5;'><center>Тест</center></td>\
+		<td style='background: #e5e5e5;'><center>Вводные данные</center></td>\
+		<td style='background: #e5e5e5;'><center>Ответ</center></td>\
+		<td style='background: #e5e5e5;'><center>Правильный ответ</center></td>\
+		<td style='background: #e5e5e5;'><center>Результат</center></td>\
 		</tr>";
 		for (i = 0; i < tests.length; i++) {
 			table.innerHTML = table.innerHTML + "<tr>\
