@@ -55,8 +55,9 @@ button.onclick = function() {
 	if (id > 0) {
 		PrintTableHead();
 		for (i = 0; i < problems[id].tests.length; i++) {
-			var report = TestProblem(problems[id].tests[i], code);
-			PrintResultsTable(problems[id].tests[i], report);
+			function doo(i, problems) {var report = TestProblem(problems[id].tests[i], code);
+			PrintResultsTable(problems[id].tests[i], report); }
+                        setTimeout(doo, 0, i, problems)
 		}
 	} else {
 		table.innerHTML = '* Select problem.';
