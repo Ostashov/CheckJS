@@ -1,10 +1,13 @@
 ﻿function ShowStatement(id) {
 	var statement = document.getElementsByClassName('ProblemStatement')[0];
 	if (id > 0) {
+		var SelectProblem = document.getElementById('SelectProblem');
+		select.removeChild(SelectProblem);
 		statement.innerHTML = problems[id].statement;
 		table.innerHTML = '';
 	} else {
 		statement.innerHTML = '';
+		table.innerHTML = '';
 	}
 }
 
@@ -38,7 +41,8 @@ button.onclick = function() {
 		PrintTableHead();
 		for (i = 0; i < problems[id].tests.length; i++) {
 			var report = TestProblem(problems[id].tests[i], code);
-			PrintResultsTable(problems[id].tests[i], report);
+			function tmp() {PrintResultsTable(problems[id].tests[i], report);};
+			setTimeout(tmp, 1);
 		}
 	} else {
 		table.innerHTML = '* Select problem.';

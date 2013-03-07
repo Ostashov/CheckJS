@@ -7,14 +7,14 @@
 <body>
 	<form action='' method=post enctype=multipart/form-data>
 	<select name="ProblemId" onchange="ShowStatement(this.value)">
-		<option>Select problem</option>
+		<option id='SelectProblem'>Select problem</option>
 	</select><br>
 	<div class="ProblemStatement">
 	</div>
 	<i>Code:</i><br><textarea rows="10" name="content" cols="75" rows="45" >function sum(number) {
 	var result = 0;
-	for (var i=0; i<number.length; i++) {
-		result = result + +number[i];
+	for (var i=0; i<= +number; i++) {
+		result = result + i;
 	}
 	return	result;
 }</textarea><br>
