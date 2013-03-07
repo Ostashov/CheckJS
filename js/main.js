@@ -6,10 +6,15 @@
 		if (remove === 1) {
 			select.removeChild(SelectProblem);
 		}
-		statement.innerHTML = problems[id].statement + '<br><br><b>Sample:</b>';
+		statement.innerHTML = problems[id].statement + '<br><br><b>Sample:</b>' + '<table id="SampleTable"></table>';
+		var SampleTable = getElementById(SampleTable);
+		SampleTable.innerHTML = "<tr>\
+		<td class='TableHead'>Data</td>\
+		<td class='TableHead'>Answer</td>\
+		</tr>";
 		for (i = 0; i < problems[id].tests.length; i++) {
-			if (problems[id].tests[i].sample === true) {
-				statement.innerHTML = statement.innerHTML + '<br>' + problems[id].tests[i].data + ' --> ' + problems[id].tests[i].answer;
+			if (problems[id].tests[i].sample == true) {
+				SampleTable.innerHTML = SampleTable.innerHTML + '<tr><td>' + problems[id].tests[i].data + '</td><td>' problems[id].tests[i].answer + '</td></tr>';
 			}
 		}
 		table.innerHTML = '';
