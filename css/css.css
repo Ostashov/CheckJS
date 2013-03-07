@@ -25,6 +25,7 @@ textarea:focus {
 }
 
 table {
+	margin-top: 5px;
 	border-collapse: collapse;
 }
 

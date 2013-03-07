@@ -1,20 +1,20 @@
 ﻿function ShowStatement(id) {
 	var statement = document.getElementsByClassName('ProblemStatement')[0];
 	if (id > 0) {
+		var id = select.value;
 		var SelectProblem = document.getElementById('SelectProblem');
 		remove = remove + 1;
 		if (remove === 1) {
 			select.removeChild(SelectProblem);
 		}
-		statement.innerHTML = problems[id].statement + '<br><br><b>Sample:</b>' + '<table id="SampleTable"></table>';
-		var SampleTable = getElementById(SampleTable);
-		SampleTable.innerHTML = "<tr>\
+		statement.innerHTML = problems[id].statement + '<br><br><i>Sample:</i><br>' + "<table id='SampleTable'><tr>\
 		<td class='TableHead'>Data</td>\
 		<td class='TableHead'>Answer</td>\
-		</tr>";
+		</tr></table>";
+		var Sample = document.getElementById("SampleTable");
 		for (i = 0; i < problems[id].tests.length; i++) {
-			if (problems[id].tests[i].sample == true) {
-				SampleTable.innerHTML = SampleTable.innerHTML + '<tr><td>' + problems[id].tests[i].data + '</td><td>' problems[id].tests[i].answer + '</td></tr>';
+			if (problems[id].tests[i].sample === true) {
+				Sample.innerHTML = Sample.innerHTML + '<tr><td>' + problems[id].tests[i].data + '</td><td>' + problems[id].tests[i].answer + '</td></tr>';
 			}
 		}
 		table.innerHTML = '';
@@ -24,6 +24,7 @@
 	}
 }
 
+
 var remove = 0;
 var select = document.getElementsByName('ProblemId')[0];
 for (var i = 1; i < problems.length; i++) {
@@ -31,16 +32,16 @@ for (var i = 1; i < problems.length; i++) {
 }
 			
 function TestProblem (test, code) {
-	var user_answer =[];
-	var result = [];
+	//var user_answer =[];
+	//var result = [];
 	eval(code);
 	
 	if (sum(test.data) === test.answer) {
-		result[i] = 'OK';
+		var result = 'OK';
 	} else {
-		result[i] = 'NO';
+		var result = 'NO';
 	}
-	user_answer[i] = sum(test.data);
+	user_answer = sum(test.data);
 	
 	return {"result":result, "user_answer":user_answer};
 }
@@ -78,8 +79,8 @@ function PrintResultsTable(test, report) {
 	table.innerHTML = table.innerHTML + "<tr>\
 	<td><center>" + (i+1) + "</center></td>\
 	<td>" + test.data + "</td>\
-	<td>" + report.user_answer[i] + "</td>\
+	<td>" + report.user_answer + "</td>\
 	<td>" + test.answer + "</td>\
-	<td><center>" + report.result[i] + "</center></td>\
+	<td><center>" + report.result + "</center></td>\
 	</tr>";
 }
