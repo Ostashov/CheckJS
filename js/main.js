@@ -2,8 +2,16 @@
 	var statement = document.getElementsByClassName('ProblemStatement')[0];
 	if (id > 0) {
 		var SelectProblem = document.getElementById('SelectProblem');
-		select.removeChild(SelectProblem);
-		statement.innerHTML = problems[id].statement;
+		remove = remove + 1;
+		if (remove === 1) {
+			select.removeChild(SelectProblem);
+		}
+		statement.innerHTML = problems[id].statement + '<br><br><b>Sample:</b>';
+		for (i = 0; i < problems[id].tests.length; i++) {
+			if (problems[id].tests[i].sample === true) {
+				statement.innerHTML = statement.innerHTML + '<br>' + problems[id].tests[i].data + ' --> ' + problems[id].tests[i].answer;
+			}
+		}
 		table.innerHTML = '';
 	} else {
 		statement.innerHTML = '';
@@ -11,6 +19,7 @@
 	}
 }
 
+var remove = 0;
 var select = document.getElementsByName('ProblemId')[0];
 for (var i = 1; i < problems.length; i++) {
 	select.innerHTML = select.innerHTML + '<option value="' + i + '">' + i + '</option>';
@@ -41,8 +50,7 @@ button.onclick = function() {
 		PrintTableHead();
 		for (i = 0; i < problems[id].tests.length; i++) {
 			var report = TestProblem(problems[id].tests[i], code);
-			function tmp() {PrintResultsTable(problems[id].tests[i], report);};
-			setTimeout(tmp, 1);
+			PrintResultsTable(problems[id].tests[i], report);
 		}
 	} else {
 		table.innerHTML = '* Select problem.';
@@ -69,5 +77,4 @@ function PrintResultsTable(test, report) {
 	<td>" + test.answer + "</td>\
 	<td><center>" + report.result[i] + "</center></td>\
 	</tr>";
-	document.body.appendChild(table);
 }
