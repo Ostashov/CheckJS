@@ -58,7 +58,7 @@ button.onclick = function() {
 		PrintTableHead();
 		for (i = 0; i < problems[id].tests.length; i++) {
 			function doo(i, problems) {var report = TestProblem(problems[id].tests[i], code);
-			PrintResultsTable(problems[id].tests[i], report);
+			PrintResultsTable(problems[id].tests[i], report, i);
 			if (i === problems[id].tests.length - 1) {TestProcess.innerHTML = 'Done.';}
 			}
                         setTimeout(doo, 0, i, problems)
@@ -79,7 +79,7 @@ function PrintTableHead() {
 		</tr>";
 }
 		
-function PrintResultsTable(test, report) {
+function PrintResultsTable(test, report, i) {
 	table.innerHTML = table.innerHTML + "<tr>\
 	<td><center>" + (i+1) + "</center></td>\
 	<td>" + test.data + "</td>\
