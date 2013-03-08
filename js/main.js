@@ -1,5 +1,6 @@
 ﻿function ShowStatement(id) {
 	var statement = document.getElementsByClassName('ProblemStatement')[0];
+	TestProcess.innerHTML = '';
 	if (id > 0) {
 		var id = select.value;
 		var SelectProblem = document.getElementById('SelectProblem');
@@ -24,7 +25,6 @@
 	}
 }
 
-
 var remove = 0;
 var select = document.getElementsByName('ProblemId')[0];
 for (var i = 1; i < problems.length; i++) {
@@ -46,23 +46,26 @@ function TestProblem (test, code) {
 	return {"result":result, "user_answer":user_answer};
 }
 
+var TestProcess = document.getElementById("TestProcess");
 var button = document.getElementsByTagName('input')[0];
 var table = document.getElementsByTagName('table')[0];
 
 button.onclick = function() {
 	var id = select.value;
 	var code = document.getElementsByName('content')[0].value;
+	TestProcess.innerHTML = 'Tested ... Please do not close the page.';
 	if (id > 0) {
 		PrintTableHead();
 		for (i = 0; i < problems[id].tests.length; i++) {
 			function doo(i, problems) {var report = TestProblem(problems[id].tests[i], code);
-			PrintResultsTable(problems[id].tests[i], report); }
+			PrintResultsTable(problems[id].tests[i], report);
+			if (i === problems[id].tests.length - 1) {TestProcess.innerHTML = 'Done.';}
+			}
                         setTimeout(doo, 0, i, problems)
 		}
 	} else {
 		table.innerHTML = '* Select problem.';
 	}
-	
 	return false;
 }
 
