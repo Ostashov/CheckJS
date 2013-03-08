@@ -2,24 +2,26 @@
 	var statement = document.getElementsByClassName('ProblemStatement')[0];
 	TestProcess.innerHTML = '';
 	if (id > 0) {
+		TestProcess.innerHTML = '';
 		var id = select.value;
 		var SelectProblem = document.getElementById('SelectProblem');
 		remove = remove + 1;
 		if (remove === 1) {
 			select.removeChild(SelectProblem);
 		}
-		statement.innerHTML = problems[id].statement + '<br><br><i>Sample:</i><br>' + "<table id='SampleTable'><tr>\
+		statement.innerHTML = problems[id].statement + '<br><br><TestNumber>Sample:</TestNumber><br>' + "<table id='SampleTable'><tr>\
 		<td class='TableHead'>Data</td>\
 		<td class='TableHead'>Answer</td>\
 		</tr></table>";
 		var Sample = document.getElementById("SampleTable");
-		for (i = 0; i < problems[id].tests.length; i++) {
-			if (problems[id].tests[i].sample === true) {
-				Sample.innerHTML = Sample.innerHTML + '<tr><td>' + problems[id].tests[i].data + '</td><td>' + problems[id].tests[i].answer + '</td></tr>';
+		for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
+			if (problems[id].tests[TestNumber].sample === true) {
+				Sample.innerHTML = Sample.innerHTML + '<tr><td>' + problems[id].tests[TestNumber].data + '</td><td>' + problems[id].tests[TestNumber].answer + '</td></tr>';
 			}
 		}
 		table.innerHTML = '';
 	} else {
+		TestProcess.innerHTML = '';
 		statement.innerHTML = '';
 		table.innerHTML = '';
 	}
@@ -27,8 +29,14 @@
 
 var remove = 0;
 var select = document.getElementsByName('ProblemId')[0];
-for (var i = 1; i < problems.length; i++) {
-	select.innerHTML = select.innerHTML + '<option value="' + i + '">' + i + '</option>';
+for (var TestNumber = 1; TestNumber < problems.length; TestNumber++) {
+	select.innerHTML = select.innerHTML + '<option value="' + TestNumber + '">' + TestNumber + '</option>';
+}
+
+function RunTest(TestNumber, problems, id, code) {
+				var report = TestProblem(problems[id].tests[TestNumber], code);
+				PrintResultsTable(problems[id].tests[TestNumber], report, TestNumber);
+				//if (TestNumber === problems[id].tests.length - 1) {TestProcess.innerHTML = 'Done.';}
 }
 			
 function TestProblem (test, code) {
@@ -53,19 +61,16 @@ var table = document.getElementsByTagName('table')[0];
 button.onclick = function() {
 	var id = select.value;
 	var code = document.getElementsByName('content')[0].value;
-	TestProcess.innerHTML = 'Tested ... Please do not close the page.';
 	if (id > 0) {
+		TestProcess.innerHTML = 'Testing ... Please do not close the page.';
 		PrintTableHead();
-		for (i = 0; i < problems[id].tests.length; i++) {
-			function doo(i, problems) {var report = TestProblem(problems[id].tests[i], code);
-			PrintResultsTable(problems[id].tests[i], report, i);
-			if (i === problems[id].tests.length - 1) {TestProcess.innerHTML = 'Done.';}
-			}
-                        setTimeout(doo, 0, i, problems)
+		for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
+            setTimeout(RunTest, 0, TestNumber, problems, id, code)
 		}
 	} else {
 		table.innerHTML = '* Select problem.';
 	}
+	setTimeout(function () {TestProcess.innerHTML = 'Done.'}, 0);
 	return false;
 }
 
@@ -79,9 +84,9 @@ function PrintTableHead() {
 		</tr>";
 }
 		
-function PrintResultsTable(test, report, i) {
+function PrintResultsTable(test, report, TestNumber) {
 	table.innerHTML = table.innerHTML + "<tr>\
-	<td><center>" + (i+1) + "</center></td>\
+	<td><center>" + (TestNumber+1) + "</center></td>\
 	<td>" + test.data + "</td>\
 	<td>" + report.user_answer + "</td>\
 	<td>" + test.answer + "</td>\
