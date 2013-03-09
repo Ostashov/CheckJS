@@ -43,15 +43,16 @@ function TestProblem (test, code) {
 	//var user_answer =[];
 	//var result = [];
 	eval(code);
-	
+	var StartTime = new Date;
 	if (sum(test.data) === test.answer) {
 		var result = 'OK';
 	} else {
 		var result = 'NO';
 	}
+	var EndTime = new Date;
 	user_answer = sum(test.data);
 	
-	return {"result":result, "user_answer":user_answer};
+	return {"result":result, "user_answer":user_answer, "TestTime":EndTime - StartTime};
 }
 
 var TestProcess = document.getElementById("TestProcess");
@@ -81,6 +82,7 @@ function PrintTableHead() {
 		<td class='TableHead'>User response</td>\
 		<td class='TableHead'>Answer</td>\
 		<td class='TableHead'>Result</td>\
+		<td class='TableHead'>Time, ms</td>\
 		</tr>";
 }
 		
@@ -91,5 +93,6 @@ function PrintResultsTable(test, report, TestNumber) {
 	<td>" + report.user_answer + "</td>\
 	<td>" + test.answer + "</td>\
 	<td><center>" + report.result + "</center></td>\
+	<td>" + report.TestTime + "</td>\
 	</tr>";
 }
