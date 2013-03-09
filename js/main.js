@@ -40,17 +40,15 @@ function RunTest(TestNumber, problems, id, code) {
 }
 			
 function TestProblem (test, code) {
-	//var user_answer =[];
-	//var result = [];
 	eval(code);
 	var StartTime = new Date;
-	if (sum(test.data) === test.answer) {
+	var user_answer = sum(test.data);
+	if (user_answer === test.answer) {
 		var result = 'OK';
 	} else {
 		var result = 'NO';
 	}
 	var EndTime = new Date;
-	user_answer = sum(test.data);
 	
 	return {"result":result, "user_answer":user_answer, "TestTime":EndTime - StartTime};
 }
