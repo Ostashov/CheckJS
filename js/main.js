@@ -28,6 +28,14 @@
 }
 
 var remove = 0;
+var TextArea = document.getElementsByName('content')[0]
+var myCodeMirror = CodeMirror.fromTextArea(TextArea, {
+	lineNumbers: true,
+	height: "dynamic",
+	enterMode: "keep",
+	value: TextArea.innerHTML,
+	mode: "javascript"
+});
 var select = document.getElementsByName('ProblemId')[0];
 for (var TestNumber = 1; TestNumber < problems.length; TestNumber++) {
 	select.innerHTML = select.innerHTML + '<option value="' + TestNumber + '">' + TestNumber + '</option>';
@@ -59,7 +67,7 @@ var table = document.getElementsByTagName('table')[0];
 
 button.onclick = function() {
 	var id = select.value;
-	var code = document.getElementsByName('content')[0].value;
+	var code = TextArea.value;
 	if (id > 0) {
 		TestProcess.innerHTML = 'Testing ... Please do not close the page.';
 		PrintTableHead();
