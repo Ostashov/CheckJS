@@ -40,9 +40,10 @@ var myCodeMirror = CodeMirror.fromTextArea(TextArea, {
 	value: TextArea.innerHTML,
 	mode: "javascript"
 });
+
 var select = document.getElementsByName('ProblemId')[0];
-for (var TestNumber = 1; TestNumber < problems.length; TestNumber++) {
-	select.innerHTML = select.innerHTML + '<option value="' + TestNumber + '">' + TestNumber + '</option>';
+for (var ProblemNumber = 1; ProblemNumber < problems.length; ProblemNumber++) {
+	select.innerHTML = select.innerHTML + '<option value="' + ProblemNumber + '">' + ProblemNumber + ' ' + problems[ProblemNumber].name + '</option>';
 }
 
 function RunTest(TestNumber, problems, id, f) {
