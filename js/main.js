@@ -2,6 +2,8 @@
 	var statement = document.getElementsByClassName('ProblemStatement')[0];
 	TestProcess.innerHTML = '';
 	if (id > 0) {
+		TextArea.value = problems[id].code;
+		myCodeMirror.setValue(TextArea.value);
 		TestProcess.innerHTML = '';
 		var id = select.value;
 		var SelectProblem = document.getElementById('SelectProblem');
@@ -21,6 +23,8 @@
 		}
 		table.innerHTML = '';
 	} else {
+		TextArea.value = '';
+		myCodeMirror.setValue();
 		TestProcess.innerHTML = '';
 		statement.innerHTML = '';
 		table.innerHTML = '';
