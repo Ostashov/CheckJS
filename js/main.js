@@ -70,6 +70,7 @@ var button = document.getElementsByTagName('input')[0];
 var table = document.getElementsByTagName('table')[0];
 
 button.onclick = function() {
+	myCodeMirror.save();
 	var id = select.value;
 	var code = TextArea.value;
 	if (id > 0) {
