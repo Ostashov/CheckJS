@@ -45,16 +45,15 @@ for (var TestNumber = 1; TestNumber < problems.length; TestNumber++) {
 	select.innerHTML = select.innerHTML + '<option value="' + TestNumber + '">' + TestNumber + '</option>';
 }
 
-function RunTest(TestNumber, problems, id, code) {
-				var report = TestProblem(problems[id].tests[TestNumber], code);
+function RunTest(TestNumber, problems, id, f) {
+				var report = TestProblem(problems[id].tests[TestNumber], f);
 				PrintResultsTable(problems[id].tests[TestNumber], report, TestNumber);
 				//if (TestNumber === problems[id].tests.length - 1) {TestProcess.innerHTML = 'Done.';}
 }
 			
-function TestProblem (test, code) {
-	eval(code);
+function TestProblem (test, f) {
 	var StartTime = new Date;
-	var user_answer = sum(test.data);
+	var user_answer = f(test.data);
 	if (user_answer === test.answer) {
 		var result = 'OK';
 	} else {
@@ -73,11 +72,12 @@ button.onclick = function() {
 	myCodeMirror.save();
 	var id = select.value;
 	var code = TextArea.value;
+	f = eval('(' + code + ')');
 	if (id > 0) {
 		TestProcess.innerHTML = 'Testing ... Please do not close the page.';
 		PrintTableHead();
 		for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
-            setTimeout(RunTest, 0, TestNumber, problems, id, code)
+            setTimeout(RunTest, 0, TestNumber, problems, id, f)
 		}
 	} else {
 		table.innerHTML = '* Select problem.';

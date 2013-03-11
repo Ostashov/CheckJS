@@ -11,7 +11,7 @@ problems[2] = {
 	"fname": "sum",
 	"tests": [{"data":"100", "answer":5050, "sample":true}, {"data":"999999", "answer":499999500000, "sample":false}, {"data":"111111111", "answer":6172839549382716, "sample":false}],
 	"statement": "Calculate the sum from 1 to N.",
-	"code": "function sum(number) {\n\
+	"code": "function (number) {\n\
 				var result = 0;\n\
 				for (var i=0; i<= +number; i++) {\n\
 					result = result + i;\n\
