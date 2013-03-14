@@ -13,18 +13,24 @@
     <script type="text/javascript" src="js/controller.js"></script>
 </head>
 <body>
-    <form action='' method=post enctype=multipart/form-data>
-    <i>Select problem:</i><br><select id="ProblemId">
-    </select><br>
-    <div id="ProblemTask">
+    <div id="wrapper">
+        <div id="LeftTop">
+            <form action='' method=post enctype=multipart/form-data>
+            <i>Select problem:</i><br><select id="ProblemId">
+            </select><br>
+            <div id="ProblemTask">
+            </div>
+            <div id="ProblemSamples">
+            </div>
+            <i>Code:</i><br><textarea id='Code' rows="10" ></textarea><br>
+            <input type=submit id='SubmitButton' value='Submit'><i id="TestProcess"></i>
+            </form>
+        </div>
+        <div id="RightTop">
+            <table id='ResultTable'>
+            </table>
+        </div>
     </div>
-    <div id="ProblemSamples">
-    </div>
-    <i>Code:</i><br><textarea id='Code' rows="10" name="content" cols="75" rows="45" ></textarea><br>
-    <input type=submit id='SubmitButton' value='Submit'><i id="TestProcess"></i>
-    </form>
-    <table id='ResultTable'>
-    </table>
 </body>
 </html>    
     

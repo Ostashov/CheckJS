@@ -1,5 +1,25 @@
 body {
+    background: #ddd;
 	font: 14px Georgia;
+}
+
+#wrapper {
+    width: 960px;
+    margin: 0 auto !important;
+}
+
+#LeftTop {
+    float:left;
+    padding: 10px;
+    background: #ffffff;
+    width: 460px;
+}
+
+#RightTop {
+    float:right;
+    padding: 10px;
+    background: #ffffff;
+    width: 460px;
 }
 
 .ProblemStatement {
@@ -11,9 +31,8 @@ body {
 }
 
 textarea {
-	width: 50%;
+	width: 99%;
 	resize: none;
-	padding: 5px;
 	border: 1px solid #959595;
 	border-radius: 10px;
 }
@@ -25,8 +44,11 @@ textarea:focus {
 }
 
 table {
-	margin-top: 5px;
 	border-collapse: collapse;
+}
+
+#ResultTable {
+    margin: 0 auto;
 }
 
 td {
