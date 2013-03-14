@@ -21,7 +21,7 @@ problems[2] = {
 }
 
 problems[3] = {
-    "name": "Посчитать сумму цифр числа",
+    "name": "Сумму цифр числа",
     "tests": [{"data":"12345", "answer":15, "sample":true}, {"data":"990", "answer":18, "sample":true}, {"data":"1", "answer":1, "sample":false}, {"data":"1010101", "answer":4, "sample":false}, {"data":"0", "answer":0, "sample":false}],
     "statement": "Написать функцию, результат которой является сумма цифр исходного числа.<br>Исходное число - строка;<br>Результат - число.<b>Без кода</b>",
     "code": ""
@@ -42,11 +42,11 @@ problems[4] = {
 
 problems[5] = {
     "name": "Количество слов",
-    "tests": [{"data":"Lorem ipsum dolor sit amet", "answer":4, "sample":true}, {"data":"Винни-Пух съел весь мёд", "answer":3, "sample":true}, {"data":"Петя купил упаковку сухариков", "answer":3, "sample":false}, {"data":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "answer":18, "sample":false}],
+    "tests": [{"data":"Lorem ipsum dolor sit amet", "answer":5, "sample":true}, {"data":"Винни-Пух съел весь мёд", "answer":4, "sample":true}, {"data":"Петя купил упаковку сухариков", "answer":4, "sample":false}, {"data":"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "answer":19, "sample":false}],
     "statement": "Написать функцию, результатом которой является количество слов в строке.<br>string - исходная строка;<br>Результат - число.",
     "code" : "function (text) {\n\
-    var spaceInArray = text.split(' ');\n\
-    var result = spaceInArray.length - 1;\n\
+    var wordInArray = text.split(' ');\n\
+    var result = wordInArray.length;\n\
     return result;\n\
 }"
 }

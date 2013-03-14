@@ -1,10 +1,6 @@
-﻿//VAR//
-//VAR//
-
-
-function RunTest(TestNumber, problems, id, f) {
-                var report = TestProblem(problems[id].tests[TestNumber], f);
-                PrintResultsTable(problems[id].tests[TestNumber], report, TestNumber);
+﻿function RunTest(TestNumber, problem, f) {
+                var report = TestProblem(problem.tests[TestNumber], f);
+                PrintResultsTable(problem.tests[TestNumber], report, TestNumber);
                 //if (TestNumber === problems[id].tests.length - 1) {TestProcess.innerHTML = 'Done.';}
 }
             
