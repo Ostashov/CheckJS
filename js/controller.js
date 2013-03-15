@@ -1,4 +1,16 @@
 $(document).ready(function() {
+    $('#SubmitButton').mouseover(function() {
+        $('#SubmitButton').attr('src', 'img/buttons/Submit_hover.png')
+    });
+    $('#SubmitButton').mouseout(function() {
+        $('#SubmitButton').attr('src', 'img/buttons/Submit_default.png')
+    });
+    $('#SubmitButton').mousedown(function() {
+        $('#SubmitButton').attr('src', 'img/buttons/Submit_active.png')
+    });
+    $('#SubmitButton').mouseup(function() {
+        $('#SubmitButton').attr('src', 'img/buttons/Submit_hover.png')
+    });
     $('#SubmitButton').click(function() {
         //myCodeMirror.save();
         var id = $('#ProblemId').val();
