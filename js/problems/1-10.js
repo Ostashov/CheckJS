@@ -21,7 +21,7 @@ problems[2] = {
 }
 
 problems[3] = {
-    "name": "Сумму цифр числа",
+    "name": "Сумма цифр числа",
     "tests": [{"data":"12345", "answer":15, "sample":true}, {"data":"990", "answer":18, "sample":true}, {"data":"1", "answer":1, "sample":false}, {"data":"1010101", "answer":4, "sample":false}, {"data":"0", "answer":0, "sample":false}],
     "statement": "Написать функцию, результат которой является сумма цифр исходного числа.<br>Исходное число - строка;<br>Результат - число.<b>Без кода</b>",
     "code": ""

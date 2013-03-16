@@ -1,4 +1,4 @@
-$(document).ready(function() {
+﻿$(document).ready(function() {
     //var TextArea = document.getElementsByName('content')[0]
     //var myCodeMirror = CodeMirror.fromTextArea(TextArea, {
     //    lineNumbers: true,

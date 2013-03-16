@@ -1,28 +1,35 @@
-/*--MAIN--*/
+﻿/*--MAIN--*/
 body {
     background: #ddd;
 	font: 14px Georgia;
     margin: 0;
 }
 
+html, body {
+    height: 100%;
+}
+
 .wrapper {
     width: 1000px;
-    min-height: 600px;
+    min-height: 100%;
+    height: auto;
     background-color: #ffffff;
     position: relative;
-    margin: 0 auto !important;
+    margin: 0 auto -51px auto !important;
 }
 
 #LeftTop {
     float:left;
     width: 450px;
     padding: 10px;
+    height: auto;
 }
 
 #RightTop {
     float:right;
     width: 510px;
     padding: 10px;
+    height: auto;
 }
 
 .Italic {
@@ -63,7 +70,7 @@ td {
     height: 50px;
     width: 1000px;
     background-color: #555555;
-    display: table-cell; 
+    display: table-cell;
     vertical-align: middle;
 }
 
@@ -99,4 +106,24 @@ td {
 #ResultTable {
     margin: 0 auto;
     overflow: auto;
+}
+
+/*--FOOTER--*/
+#Footer {
+    float: none;
+    height: 50px;
+    width: 1000px;
+    background-color: #959595;
+    position: relative;
+    margin: 0 auto;
+    border-top: 1px solid #555555;
+    display: table;
+}
+
+#FooterDescription {
+    display: table-cell;
+    vertical-align: middle;
+    color: #ffffff;
+    padding-left: 10px;
+    text-shadow: 1px 1px 0px #555555;
 }

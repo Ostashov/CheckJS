@@ -1,4 +1,4 @@
-$(document).ready(function() {
+﻿$(document).ready(function() {
     $('#SubmitButton').mouseover(function() {
         $('#SubmitButton').attr('src', 'img/buttons/Submit_hover.png')
     });
