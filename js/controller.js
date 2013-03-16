@@ -13,6 +13,7 @@ $(document).ready(function() {
     });
     $('#SubmitButton').click(function() {
         //myCodeMirror.save();
+        $("#SubmitButton").attr('disabled',true);
         var id = $('#ProblemId').val();
         var code = $('#Code').val();
         var TestProcess = $('#TestProcess');
@@ -22,7 +23,10 @@ $(document).ready(function() {
         for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
             setTimeout(RunTest, 0, TestNumber, problems[id], f)
         }
-        setTimeout(function () {TestProcess.html('Done.');}, 0);
+        setTimeout(function () {
+            TestProcess.html('Done.');
+            $("#SubmitButton").removeAttr('disabled');
+        }, 0);
         return false;
     });
     

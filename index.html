@@ -14,21 +14,24 @@
 </head>
 <body>
     <div class="wrapper">
+        <div id="Head">
+            <div id="SiteName"><a id="LogoLinkHead" href="index.html">CheckJS</a></div>
+        </div>
         <div id="LeftTop">
             <form action='' method=post enctype=multipart/form-data>
-            <i>Select problem:</i><br><select id="ProblemId">
+            <div class="BlockName Italic">Select problem:</div><select id="ProblemId">
             </select>
             <div id="ProblemTask">
             </div>
             <div id="ProblemSamples">
             </div>
-            <i>Code:</i><br><textarea id='Code' rows="10" ></textarea><br>
+            <div class="BlockName Italic">Code:</div><textarea id='Code' rows="10" ></textarea><br>
             <input type=image src="img/buttons/Submit_default.png" id='SubmitButton' value='Submit'>
             </form>
         </div>
         <div id="RightTop">
-            <i id="TestProcess"></i><br><br>
             <table id='ResultTable'>
+            <p class="Italic" id="TestProcess"></p>
             </table>
         </div>
     </div>

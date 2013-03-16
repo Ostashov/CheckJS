@@ -1,3 +1,4 @@
+/*--MAIN--*/
 body {
     background: #ddd;
 	font: 14px Georgia;
@@ -14,22 +15,18 @@ body {
 
 #LeftTop {
     float:left;
-    width: 480px;
+    width: 450px;
     padding: 10px;
 }
 
 #RightTop {
     float:right;
-    width: 480px;
+    width: 510px;
     padding: 10px;
 }
 
-.ProblemStatement {
-	width: 50%;
-	margin-top: 10px;
-	margin-left: 0px;
-	margin-right: 0px;
-	margin-bottom: 10px;
+.Italic {
+    font-style: italic;
 }
 
 textarea {
@@ -41,16 +38,12 @@ textarea {
 
 textarea:focus {
 	outline: none;
-	border: 1px dashed #00aeef;
+	border: 1px solid #00aeef;
 	border-radius: 10px;
 }
 
 table {
 	border-collapse: collapse;
-}
-
-#ResultTable {
-    margin: 0 auto;
 }
 
 td {
@@ -62,4 +55,48 @@ td {
 .TableHead {
 	background: #e5e5e5;
 	text-align: center;
+}
+
+/*--HEAD--*/
+#Head {
+    float: none;
+    height: 50px;
+    width: 1000px;
+    background-color: #555555;
+    display: table-cell; 
+    vertical-align: middle;
+}
+
+#SiteName {
+    font: bold 22pt Myriad Pro;
+    letter-spacing: 1px;
+    color: #ffffff;
+    margin-left: 10px;
+}
+
+#LogoLinkHead:link, #LogoLinkHead:visited, #LogoLinkHead:hover, #LogoLinkHead:active {
+    color: #ffffff;
+    text-decoration:none;
+}
+
+/*--CONTENT--*/
+.BlockName {
+    margin: 15px 0px 5px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+
+.ProblemStatement {
+	width: 50%;
+	margin-top: 10px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+}
+
+
+#ResultTable {
+    margin: 0 auto;
+    overflow: auto;
 }
