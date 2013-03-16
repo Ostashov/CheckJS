@@ -10,7 +10,7 @@ html, body {
 }
 
 .wrapper {
-    width: 1000px;
+    width: 960px;
     min-height: 100%;
     height: auto;
     background-color: #ffffff;
@@ -20,20 +20,19 @@ html, body {
 
 #LeftTop {
     float:left;
-    width: 450px;
+    width: 400px;
     padding: 10px;
     height: auto;
+    -moz-box-shadow: 10px 0 -9px #d7d7d7;
+    -webkit-box-shadow: 10px 0 -9px #d7d7d7;
+    box-shadow: 10px 0 -9px #d7d7d7;
 }
 
 #RightTop {
     float:right;
-    width: 510px;
+    width: 520px;
     padding: 10px;
     height: auto;
-}
-
-.Italic {
-    font-style: italic;
 }
 
 textarea {
@@ -50,6 +49,7 @@ textarea:focus {
 }
 
 table {
+    font: 10pt Courier New;
 	border-collapse: collapse;
 }
 
@@ -88,14 +88,19 @@ td {
 
 /*--CONTENT--*/
 .BlockName {
+    font: 12pt Myriad Pro;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #00aeef;
     margin: 15px 0px 5px;
     padding-bottom: 2px;
     border-bottom: 1px solid #d7d7d7;
 }
 
 
-.ProblemStatement {
-	width: 50%;
+#ProblemTask {
+    border: 1px dotted #d7d7d7;
+    padding: 5px;
 	margin-top: 10px;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -112,7 +117,7 @@ td {
 #Footer {
     float: none;
     height: 50px;
-    width: 1000px;
+    width: 960px;
     background-color: #959595;
     position: relative;
     margin: 0 auto;
@@ -121,6 +126,7 @@ td {
 }
 
 #FooterDescription {
+    font-style: italic;
     display: table-cell;
     vertical-align: middle;
     color: #ffffff;

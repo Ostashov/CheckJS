@@ -22,7 +22,7 @@ function ShowTask(problem) {
 
 function ShowSamples(problem) {
     var samples = $('#ProblemSamples');
-    samples.html('<div class="BlockName Italic">Sample:</div>' + "<table id='SampleTable'><tr>\
+    samples.html('<div class="BlockName">Sample:</div>' + "<table id='SampleTable'><tr>\
     <td class='TableHead'>Data</td>\
     <td class='TableHead'>Answer</td>\
     </tr></table>");
