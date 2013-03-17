@@ -11,6 +11,7 @@
     $('#SubmitButton').mouseup(function() {
         $(this).attr('src', 'img/buttons/Submit_hover.png')
     });
+    
     $('#SubmitButton').click(function() {
         //myCodeMirror.save();
         var TestProcess = $('#TestProcess');

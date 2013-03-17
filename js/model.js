@@ -1,7 +1,6 @@
 ﻿function RunTest(TestNumber, problem, f) {
                 var report = TestProblem(problem.tests[TestNumber], f);
                 PrintResultsTable(problem.tests[TestNumber], report, TestNumber);
-                //if (TestNumber === problems[id].tests.length - 1) {TestProcess.innerHTML = 'Done.';}
 }
             
 function TestProblem (test, f) {

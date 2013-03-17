@@ -39,13 +39,11 @@ textarea {
 	width: 99%;
 	resize: none;
 	border: 1px solid #959595;
-	border-radius: 10px;
+	border-radius: 4px;
 }
 
 textarea:focus {
-	outline: none;
-	border: 1px solid #00aeef;
-	border-radius: 10px;
+    outline-color: #00aeef;
 }
 
 table {
@@ -73,6 +71,11 @@ td {
 	text-align: center;
 }
 
+@font-face {
+    font-family: DinPro-Medium;
+    src: url(fonts/DINPro-Medium.otf);
+}
+
 /*--HEAD--*/
 #Head {
     float: none;
@@ -84,8 +87,7 @@ td {
 }
 
 #SiteName {
-    font: bold 22pt Myriad Pro;
-    letter-spacing: 1px;
+    font: 22pt MyriadPro-BoldIt;
     color: #ffffff;
     margin-left: 10px;
 }
@@ -97,8 +99,8 @@ td {
 
 /*--CONTENT--*/
 .BlockName {
-    font: 12pt Myriad Pro;
-    font-weight: 500;
+    font-size: 14pt;
+    font-family: DinPro-Medium;
     text-transform: uppercase;
     color: #00aeef;
     margin: 15px 0px 5px;
