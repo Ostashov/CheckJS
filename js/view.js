@@ -1,5 +1,5 @@
 ﻿$(document).ready(function() {
-    //var TextArea = document.getElementsByName('content')[0]
+    //var TextArea = $('#Code');
     //var myCodeMirror = CodeMirror.fromTextArea(TextArea, {
     //    lineNumbers: true,
     //    height: "dynamic",
@@ -40,12 +40,13 @@ function ShowCode(problem) {
 }
 
 function ShowStatement(problem) {
+    //var TextArea = $('#Code');
     ShowTask(problem);
     ShowSamples(problem);
     ShowCode(problem);
     var TestProcess = $('#TestProcess');
-    //var myCodeMirror = $('.CodeMirror');
-    //myCodeMirror.value(TextArea.value);
+    //var myCodeMirror = $('.CodeMirror')[0];
+    //myCodeMirror.setValue(TextArea.value);
     TestProcess.html('');
     $('#ResultTable').html('');
     
