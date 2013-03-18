@@ -13,7 +13,8 @@
     });
     
     $('#SubmitButton').click(function() {
-        //myCodeMirror.save();
+        var myCodeMirror = $('.CodeMirror')[0];
+        myCodeMirror.CodeMirror.save();
         var TestProcess = $('#TestProcess');
         setTimeout(function() {
             TestProcess.html('Testing... Do not close the page.');

@@ -1,15 +1,15 @@
 ﻿$(document).ready(function() {
-    //var TextArea = $('#Code');
-    //var myCodeMirror = CodeMirror.fromTextArea(TextArea, {
-    //    lineNumbers: true,
-    //    height: "dynamic",
-    //    enterMode: "keep",
-    //    value: TextArea.innerHTML,
-    //    mode: "javascript"
-    //});
+    var TextArea = $('#Code');
+    var myCodeMirror = CodeMirror.fromTextArea(TextArea[0], {
+        lineNumbers: true,
+        height: "dynamic",
+        enterMode: "keep",
+        value: TextArea.innerHTML,
+        mode: "javascript"
+    });
     var select = $('#ProblemId');
     for (var ProblemNumber = 1; ProblemNumber < problems.length; ProblemNumber++) {
-        select.append($('<option value="' + ProblemNumber + '">' + ProblemNumber + ' ' + problems[ProblemNumber].name + '</option>'));
+        select.append($('<option value="' + ProblemNumber + '">' + ProblemNumber + '. ' + problems[ProblemNumber].name + '</option>'));
     }
     ShowStatement(problems[1]);
 });
@@ -37,16 +37,16 @@ function ShowSamples(problem) {
 function ShowCode(problem) {
     var code = $('#Code');
     code.html(problem.code);
+    var TextArea = $('#Code');
+    var myCodeMirror = $('.CodeMirror')[0];
+    myCodeMirror.CodeMirror.setValue(TextArea[0].value);
 }
 
 function ShowStatement(problem) {
-    //var TextArea = $('#Code');
     ShowTask(problem);
     ShowSamples(problem);
     ShowCode(problem);
     var TestProcess = $('#TestProcess');
-    //var myCodeMirror = $('.CodeMirror')[0];
-    //myCodeMirror.setValue(TextArea.value);
     TestProcess.html('');
     $('#ResultTable').html('');
     

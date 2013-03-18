@@ -35,17 +35,6 @@ html, body {
     height: auto;
 }
 
-textarea {
-	width: 99%;
-	resize: none;
-	border: 1px solid #959595;
-	border-radius: 4px;
-}
-
-textarea:focus {
-    outline-color: #00aeef;
-}
-
 table {
     font: 10pt Courier New;
 	border-collapse: collapse;
@@ -73,7 +62,7 @@ td {
 
 @font-face {
     font-family: DinPro-Medium;
-    src: url(fonts/DINPro-Medium.otf);
+    src: url(../fonts/DINPro-Medium.otf);
 }
 
 /*--HEAD--*/
@@ -87,7 +76,8 @@ td {
 }
 
 #SiteName {
-    font: 22pt MyriadPro-BoldIt;
+    font: 22pt Georgia;
+    font-style: italic;
     color: #ffffff;
     margin-left: 10px;
 }
