@@ -56,11 +56,11 @@ td {
 }
 
 .ResultOK {
-    background-color: rgb(113, 220, 120);
+    background-color: rgb(213, 255, 205);
 }
 
 .ResultNO {
-    background-color: rgb(220, 113, 120);
+    background-color: rgb(255, 235, 237);
 }
 
 .TableHead {

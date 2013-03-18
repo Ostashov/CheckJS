@@ -33,12 +33,12 @@ function Compile() {
     return f;
 }
 
-function RunTest(testNumber, test, func) {
+function RunTest(TestNumber, test, func) {
     var testReport = RunFunction(test.data, func);
     if (testReport.result !== 'ERROR') {
         testReport.result = CheckResult(testReport.user_answer, test.answer);
     }
-    PrintTestResult(testNumber, testReport, test);
+    PrintTestResult(TestNumber, testReport, test);
 }
 
 function RunFunction(data, func) {
@@ -57,16 +57,3 @@ function CheckResult(user_answer, answer) {
     }
     return result;
 }
-           
-//function TestProblem (test, f) {
-//    var StartTime = new Date;
-//    var user_answer = f(test.data);
-//    if (user_answer === test.answer) {
-//       var result = 'OK';
-//    } else {
-//        var result = 'NO';
-//    }
-//    var EndTime = new Date;
-    
-//    return {"result":result, "user_answer":user_answer, "TestTime":EndTime - StartTime};
-//}

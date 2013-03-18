@@ -16,6 +16,7 @@
         var myCodeMirror = $('.CodeMirror')[0];
         myCodeMirror.CodeMirror.save();
         TestProblem();
+        return false;
     });
     
     $('#ProblemId').change(function() {ShowStatement(problems[this.value]);});

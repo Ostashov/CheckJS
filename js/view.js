@@ -35,11 +35,8 @@ function ShowSamples(problem) {
 }
 
 function ShowCode(problem) {
-    var code = $('#Code');
-    code.html(problem.code);
-    var TextArea = $('#Code');
     var myCodeMirror = $('.CodeMirror')[0];
-    myCodeMirror.CodeMirror.setValue(TextArea[0].value);
+    myCodeMirror.CodeMirror.setValue(problem.code);
 }
 
 function ShowStatement(problem) {
@@ -72,11 +69,11 @@ function PrintTableHead() {
 function PrintTestResult(testNumber, testReport, test) {
     var ResultTable = $('#ResultTable');
     ResultTable.append("<tr class='Result" + testReport.result + "'>\
-    <td><center>" + (TestNumber+1) + "</center></td>\
+    <td><center>" + (testNumber+1) + "</center></td>\
     <td>" + test.data + "</td>\
     <td>" + testReport.user_answer + "</td>\
     <td>" + test.answer + "</td>\
     <td><center>" + testReport.result + "</center></td>\
-    <td>" + testReport.TestTime + "</td>\
+    <td>" + testReport.testTime + "</td>\
     </tr>");
 }
