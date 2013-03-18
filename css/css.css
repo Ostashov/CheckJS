@@ -55,9 +55,18 @@ td {
 	word-wrap: break-word;      /* IE 5+ */
 }
 
+.ResultOK {
+    background-color: rgb(113, 220, 120);
+}
+
+.ResultNO {
+    background-color: rgb(220, 113, 120);
+}
+
 .TableHead {
 	background: #e5e5e5;
 	text-align: center;
+    text-shadow: 1px 1px 0px #fff;
 }
 
 @font-face {
@@ -107,7 +116,6 @@ td {
 	margin-right: 0px;
 	margin-bottom: 10px;
 }
-
 
 #ResultTable {
     margin: 0 auto;

@@ -65,7 +65,7 @@ function PrintTableHead() {
 }
 
 function PrintResultsTable(test, report, TestNumber) {
-    ResultTable.innerHTML = ResultTable.innerHTML + "<tr>\
+    ResultTable.innerHTML = ResultTable.innerHTML + "<tr class='Result" + report.result + "'>\
     <td><center>" + (TestNumber+1) + "</center></td>\
     <td>" + test.data + "</td>\
     <td>" + report.user_answer + "</td>\
