@@ -53,24 +53,30 @@ function ShowStatement(problem) {
     
 }
 
+function PrintCompilationError(error) {
+    $('#Error').html(error);
+}
+
 function PrintTableHead() {
-    ResultTable.innerHTML = "<tr>\
+    var ResultTable = $('#ResultTable');
+    ResultTable.html("<tr>\
         <td class='TableHead'>Test</td>\
         <td class='TableHead'>Data</td>\
         <td class='TableHead'>User response</td>\
         <td class='TableHead'>Answer</td>\
         <td class='TableHead'>Result</td>\
         <td class='TableHead'>Time, ms</td>\
-        </tr>";
+        </tr>");
 }
 
-function PrintResultsTable(test, report, TestNumber) {
-    ResultTable.innerHTML = ResultTable.innerHTML + "<tr class='Result" + report.result + "'>\
+function PrintTestResult(testNumber, testReport, test) {
+    var ResultTable = $('#ResultTable');
+    ResultTable.append("<tr class='Result" + testReport.result + "'>\
     <td><center>" + (TestNumber+1) + "</center></td>\
     <td>" + test.data + "</td>\
-    <td>" + report.user_answer + "</td>\
+    <td>" + testReport.user_answer + "</td>\
     <td>" + test.answer + "</td>\
-    <td><center>" + report.result + "</center></td>\
-    <td>" + report.TestTime + "</td>\
-    </tr>";
+    <td><center>" + testReport.result + "</center></td>\
+    <td>" + testReport.TestTime + "</td>\
+    </tr>");
 }
