@@ -13,6 +13,8 @@
     });
     
     $('#SubmitButton').click(function() {
+        $('#ResultTable').html('');
+        $('#TestProcess').html('');
         var myCodeMirror = $('.CodeMirror')[0];
         myCodeMirror.CodeMirror.save();
         TestProblem();

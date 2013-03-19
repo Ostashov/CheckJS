@@ -1,22 +1,26 @@
 ﻿function TestProblem() {
     var TestProcess = $('#TestProcess');
     setTimeout(function() {
-        TestProcess.html('Testing... Do not close the page.');
         $("#SubmitButton").attr('disabled', true);
         $("#SubmitButton").css('opacity', '0.5');
     });
     
     var func = Compile();
     if (func) {
+        setTimeout(function() {
+            TestProcess.html('Testing... Do not close the page.');
+        });
         PrintTableHead();
         var id = $('#ProblemId').val();
         for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
             setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
         }
+        setTimeout(function () {
+            var TestProcess = $('#TestProcess');
+            TestProcess.html('Done.');
+        }, 0);
     }
     setTimeout(function () {
-        var TestProcess = $('#TestProcess');
-        TestProcess.html('Done.');
         $("#SubmitButton").removeAttr('disabled');
         $("#SubmitButton").css('opacity', '1');
     }, 0);

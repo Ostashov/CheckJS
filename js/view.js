@@ -40,6 +40,7 @@ function ShowCode(problem) {
 }
 
 function ShowStatement(problem) {
+    $('#Error').html('');
     ShowTask(problem);
     ShowSamples(problem);
     ShowCode(problem);
