@@ -15,6 +15,7 @@
     $('#SubmitButton').click(function() {
         $('#ResultTable').html('');
         $('#TestProcess').html('');
+        $('#Error').html('');
         var myCodeMirror = $('.CodeMirror')[0];
         myCodeMirror.CodeMirror.save();
         TestProblem();
