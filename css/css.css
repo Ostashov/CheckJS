@@ -122,16 +122,23 @@ td {
     margin: 0 auto;
 }
 
+#howWork {
+    margin-top: 15px;
+}
+
 #TestProcess {
     width: auto;
     font-size: 14pt;
     font-family: DinPro-Medium;
     text-transform: uppercase;
     color: green;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #d7d7d7;
+    margin-top: 15px;
 }
 
 #ResultTable {
-    margin: 0 0 0 0;
+    margin: auto;
     overflow: auto;
 }
 

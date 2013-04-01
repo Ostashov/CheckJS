@@ -8,6 +8,7 @@
     var func = Compile();
     if (func) {
         setTimeout(function() {
+            TestProcess.removeAttr('hidden');
             TestProcess.html('Testing... Do not close the page.');
         });
         PrintTableHead();
@@ -16,7 +17,6 @@
             setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
         }
         setTimeout(function () {
-            var TestProcess = $('#TestProcess');
             TestProcess.html('Done.');
         }, 0);
     }
