@@ -13,6 +13,7 @@
     });
     
     $('#SubmitButton').click(function() {
+        $('#howWork').attr('hidden', 'true');
         $('#ResultTable').html('');
         $('#TestProcess').html('');
         $('#Error').html('');

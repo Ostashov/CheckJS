@@ -117,8 +117,21 @@ td {
 	margin-bottom: 10px;
 }
 
-#ResultTable {
+#ResultContent {
+    width: auto;
     margin: 0 auto;
+}
+
+#TestProcess {
+    width: auto;
+    font-size: 14pt;
+    font-family: DinPro-Medium;
+    text-transform: uppercase;
+    color: green;
+}
+
+#ResultTable {
+    margin: 0 0 0 0;
     overflow: auto;
 }
 
