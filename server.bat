@@ -1,0 +1,1 @@
+java -jar JsTestDriver-1.3.5.jar --port 9876 --browser "C:\Users\user\AppData\Local\Google\Chrome\Application\chrome.exe","C:\Program Files (x86)\Mozilla Firefox\firefox.exe"
