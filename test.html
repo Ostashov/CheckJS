@@ -1,0 +1,18 @@
+﻿<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<div class="mainmenu">
+<input type="text"></input>
+<div id="d1" style="width:100px;height:100px;background:red;">1</div>
+<div id="d2" style="width:100px;height:100px;background:green;">2</div>
+<script>
+
+// нужно дождаться конца всей анимации
+var a1 = $.Deferred(),
+  a2 = $.Deferred();
+
+$('#d1').slideUp(10000, a1.resolve);
+$('#d2').fadeOut(15000, a2.resolve);
+
+a1.done(function() { alert('a1'); });
+a2.done(function() { alert('a2'); });
+$.when(a1, a2).done(function() { alert('both'); });
+</script>
