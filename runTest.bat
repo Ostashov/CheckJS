@@ -1,1 +1,1 @@
-java -jar JsTestDriver-1.3.5.jar --tests all
+java -jar JsTestDriver-1.3.5.jar --tests all --verbose
