@@ -47,7 +47,11 @@ function RunTest(TestNumber, test, func) {
 
 function RunFunction(data, func) {
     var StartTime = new Date;
-    var user_answer = func(data);
+    try {
+        var user_answer = func(data);
+    } catch(error) {
+        return {"result":'ERROR'};
+    }
     var EndTime = new Date;
     
     return {"user_answer":user_answer, "testTime":EndTime - StartTime};

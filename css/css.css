@@ -63,6 +63,10 @@ td {
     background-color: rgb(255, 235, 237);
 }
 
+.ResultERROR {
+    background-color: rgb(255, 235, 237);
+}
+
 .TableHead {
 	background: #e5e5e5;
 	text-align: center;
