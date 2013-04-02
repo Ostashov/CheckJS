@@ -23,5 +23,9 @@
         return false;
     });
     
-    $('#ProblemId').change(function() {ShowStatement(problems[this.value]);});
+    $('#ProblemId').change(function() {
+        ShowStatement(problems[this.value]);
+        $('#howWork').removeAttr('hidden');
+        $('#TestProcess').attr('hidden', 'true');
+    });
 });
