@@ -83,15 +83,14 @@ td {
     float: none;
     height: 50px;
     width: 1000px;
-    background-color: #555555;
+    background-color: #fff;
     display: table-cell;
     vertical-align: middle;
+    border-bottom: 1px solid #555555;
 }
 
-#SiteName {
-    font-size: 22pt;
-    font-family: DINPro-Medium;
-    color: #ffffff;
+#headLogo {
+    margin-top: 2px;
     margin-left: 10px;
 }
 
