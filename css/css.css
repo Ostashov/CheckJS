@@ -89,8 +89,8 @@ td {
 }
 
 #SiteName {
-    font: 22pt Georgia;
-    font-style: italic;
+    font-size: 22pt;
+    font-family: DINPro-Medium;
     color: #ffffff;
     margin-left: 10px;
 }

@@ -2,8 +2,8 @@
 var problems = [];
 problems[1] = {
     "name": "A+B",
-    "tests": [{"data":[101,20], "answer":121, "sample":true}, {"data":[0,9019], "answer":9019, "sample":true}, {"data":[1,1], "answer":2, "sample":false}, {"data":[1000, -900], "answer":100, "sample":false}, {"data":[1010101, 10], "answer":1010111, "sample":false}, {"data":[9, -9], "answer":0, "sample":false}, {"data":[99999, 1], "answer":100000, "sample":false}, {"data":[0, 0], "answer":0, "sample":false}, {"data":[-1, -1], "answer":-2, "sample":false}, {"data":[555, 445], "answer":1000, "sample":false}],
-    "statement": "Написать безымянную функцию, результатом которой является сумма двух чисел А и В.<br>[А, В] - исходный массив;<br>Результат - число.",
+    "tests": [{"data":[101,20], "answer":121, "sample":true}, {"data":[0,9019], "answer":-9019, "sample":true}, {"data":[1,1], "answer":2, "sample":false}, {"data":[1000, -900], "answer":100, "sample":false}, {"data":[1010101, 10], "answer":1010111, "sample":false}, {"data":[9, -9], "answer":0, "sample":false}, {"data":[99999, 1], "answer":100000, "sample":false}, {"data":[0, 0], "answer":0, "sample":false}, {"data":[-1, -1], "answer":-2, "sample":false}, {"data":[555, 445], "answer":1000, "sample":false}],
+    "statement": "Написать безымянную функцию, результатом которой является сумма двух чисел А и В.<br><br><b>Входные данные:</b><br>Функция принимает аргумент - массив из двух чисел - [A, B].<br><br><b>Выходные данные:</b><br>Результатом функции является число - сумма чисел A и B.",
     "code" : "function (data) {\n\
     var result = data[0] + data[1];\n\
     return result;\n\
