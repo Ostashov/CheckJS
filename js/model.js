@@ -43,6 +43,7 @@ function RunTest(TestNumber, test, func) {
         testReport.result = CheckResult(testReport.user_answer, test.answer);
     }
     PrintTestResult(TestNumber, testReport, test);
+    return testReport;
 }
 
 function RunFunction(data, func) {

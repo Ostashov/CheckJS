@@ -28,3 +28,31 @@ TestCase("RunFunction", {
     }
 });
 
+TestCase("RunTest", {
+    setUp:function() {
+        this.tmpRunFucntion = RunFunction;
+        RunFunction = sinon.stub();
+        PrintTestResult = sinon.stub();
+        this.tmpCheckResult = CheckResult;
+        CheckResult = sinon.stub();
+    },
+    tearDown:function() {
+        RunFunction = this.tmpRunFunction;
+        CheckResult = this.tmpCheckResult;
+    },
+    
+    'test ERROR':function() {
+        RunFunction.returns({"result":'ERROR'});
+        var report = RunTest(1, {'data':2, 'answer':3}, function(data) {return 2;});
+        assertEquals('ERROR', report.result);
+    },
+    
+    'test without ERROR':function() {
+        RunFunction.returns({"user_answer":99});
+        CheckResult.returns('OK');
+        var report = RunTest(1, {'data':2, 'answer':3}, function(data) {return 99;});
+        assertEquals(99, report.user_answer);
+        assertEquals('OK', report.result);
+    }
+});
+
