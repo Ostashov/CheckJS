@@ -51,6 +51,24 @@ function ShowStatement(problem) {
     
 }
 
+
+observable.subscribe(function Commander(data) {
+    if (data.message === 'Start compile') {
+        viewPrepareBeforeTest()
+    } else if (data.message === 'Start testing') {
+        viewTestProcessRuntimeTest();
+        PrintTableHead()
+    } else if (data.message === 'Done') {
+        viewTestProcessAfterTest();
+        viewPrepareAfterTest()
+    } else if (data.message === 'ERROR') {
+        PrintCompilationError(data.error);
+    } else if (data.message === 'Finish one test') {
+        PrintTestResult(data.TestNumber, data.testReport, data.test);
+    }
+});
+
+
 function PrintCompilationError(error) {
     $('#Error').html(error);
 }

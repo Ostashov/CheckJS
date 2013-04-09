@@ -1,21 +1,24 @@
 ﻿function TestProblem(id, Code) {
-    viewPrepareBeforeTest()
+    observable.publish({'message':'Start compile'});
+    //viewPrepareBeforeTest()
     
     var func = Compile(Code);
     if (func) {
-        viewTestProcessRuntimeTest()
-        PrintTableHead();
+        observable.publish({'message':'Start testing'});
+        //viewTestProcessRuntimeTest()
+        //PrintTableHead();
         var problemReport = [];
         for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
             problemReport[TestNumber] = setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
         }
         setTimeout(function() {
-            viewTestProcessAfterTest()
+            observable.publish({'message':'Done'});
+            //viewTestProcessAfterTest()
         }, 0);
     }
-    setTimeout(function () {
-        viewPrepareAfterTest()
-    }, 0);
+    //setTimeout(function () {
+    //    viewPrepareAfterTest()
+    //}, 0);
     return problemReport;
 }
 
@@ -23,7 +26,8 @@ function Compile(Code) {
     try {
         var f = eval('(' + Code + ')');
     } catch(error) {
-        PrintCompilationError(error);
+        observable.publish({'message':'ERROR', 'error':error});
+        //PrintCompilationError(error);
         return false;
     }
     return f;
@@ -34,7 +38,8 @@ function RunTest(TestNumber, test, func) {
     if (testReport.result !== 'ERROR') {
         testReport.result = CheckResult(testReport.user_answer, test.answer);
     }
-    PrintTestResult(TestNumber, testReport, test);
+    observable.publish({'message':'Finish one test', 'TestNumber':TestNumber, 'testReport':testReport, 'test':test});
+    //PrintTestResult(TestNumber, testReport, test);
     return testReport;
 }
 
@@ -58,3 +63,17 @@ function CheckResult(user_answer, answer) {
     }
     return result;
 }
+
+var observable = {
+    observers: [],
+    
+    subscribe: function(observer) {
+        observable.observers.push(observer);
+    },
+    
+    publish: function(data) {
+        for (var i = 0; i < observable.observers.length; i++) {
+            observable.observers[i](data);
+        }
+    }
+};
