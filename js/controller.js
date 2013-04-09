@@ -25,6 +25,12 @@
         return false;
     });
     
+    $('#ProblemId').focus(function() {
+        var myCodeMirror = $('.CodeMirror')[0];
+        myCodeMirror.CodeMirror.save();
+        problems[$('#ProblemId').val()].code = $('#Code').val();
+    });
+    
     $('#ProblemId').change(function() {
         ShowStatement(problems[this.value]);
         $('#howWork').removeAttr('hidden');
