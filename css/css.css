@@ -1,7 +1,7 @@
 ﻿/*--MAIN--*/
 body {
     background: #ddd;
-	font: 14px Georgia;
+	font: 14px/18px Georgia;
     margin: 0;
 }
 
@@ -118,6 +118,7 @@ td {
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-bottom: 10px;
+    text-align: justify;
 }
 
 #ResultContent {
