@@ -30,7 +30,7 @@ TestCase("RunFunction", {
 
 TestCase("RunTest", {
     setUp:function() {
-        this.tmpRunFucntion = RunFunction;
+        this.tmpRunFunction = RunFunction;
         RunFunction = sinon.stub();
         PrintTestResult = sinon.stub();
         this.tmpCheckResult = CheckResult;
@@ -56,3 +56,48 @@ TestCase("RunTest", {
     }
 });
 
+TestCase("Compile", {
+    setUp:function() {
+        PrintCompilationError = sinon.stub();
+    },
+    
+    'test ERROR':function() {
+        var code = 'function() {var a = 5; var s = a + ;}';
+        var reportCompile = Compile(code);
+        assertEquals(false, reportCompile);
+    },
+    'test without ERROR':function() {
+        var code = 'function() {var a = 5; var s = a;}';
+        var reportCompile = Compile(code);
+        assertNotUndefined(reportCompile);
+    }
+});
+
+TestCase("TestProblem", {
+    setUp:function() {
+        viewPrepareBeforeTest = sinon.stub();
+        viewTestProcessRuntimeTest = sinon.stub();
+        PrintTableHead = sinon.stub();
+        this.tmpRunTest = RunTest;
+        RunTest = sinon.stub();
+        viewTestProcessAfterTest = sinon.stub();
+        viewPrepareAfterTest = sinon.stub();
+    },
+    tearDown:function() {
+        RunTest = this.tmpRunTest;
+    },
+    
+    'test without ERROR':function() {
+        var id = 1;
+        var code = 'function() {var a = 5; return a;}';
+        var reportTestProblem = TestProblem(id, code);
+        assertNotUndefined(reportTestProblem[0]);
+    },
+    
+    'test with ERROR':function () {
+        var id = 1;
+        var code = 'function() {var a = 5 + ; return a;}';
+        var reportTestProblem = TestProblem(id, code);
+        assertUndefined(reportTestProblem);
+    }
+});

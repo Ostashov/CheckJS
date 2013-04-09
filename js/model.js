@@ -1,35 +1,27 @@
-﻿function TestProblem() {
-    var TestProcess = $('#TestProcess');
-    setTimeout(function() {
-        $("#SubmitButton").attr('disabled', true);
-        $("#SubmitButton").css('opacity', '0.5');
-    });
+﻿function TestProblem(id, Code) {
+    viewPrepareBeforeTest()
     
-    var func = Compile();
+    var func = Compile(Code);
     if (func) {
-        setTimeout(function() {
-            TestProcess.removeAttr('hidden');
-            TestProcess.html('Testing... Do not close the page.');
-        });
+        viewTestProcessRuntimeTest()
         PrintTableHead();
-        var id = $('#ProblemId').val();
+        var problemReport = [];
         for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
-            setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
+            problemReport[TestNumber] = setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
         }
-        setTimeout(function () {
-            TestProcess.html('Done.');
+        setTimeout(function() {
+            viewTestProcessAfterTest()
         }, 0);
     }
     setTimeout(function () {
-        $("#SubmitButton").removeAttr('disabled');
-        $("#SubmitButton").css('opacity', '1');
+        viewPrepareAfterTest()
     }, 0);
+    return problemReport;
 }
 
-function Compile() {
-    var code = $('#Code').val();
+function Compile(Code) {
     try {
-        var f = eval('(' + code + ')');
+        var f = eval('(' + Code + ')');
     } catch(error) {
         PrintCompilationError(error);
         return false;

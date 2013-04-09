@@ -19,7 +19,9 @@
         $('#Error').html('');
         var myCodeMirror = $('.CodeMirror')[0];
         myCodeMirror.CodeMirror.save();
-        TestProblem();
+        var ProblemId = $('#ProblemId').val();
+        var Code = $('#Code').val();
+        TestProblem(ProblemId, Code);
         return false;
     });
     

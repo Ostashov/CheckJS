@@ -55,6 +55,26 @@ function PrintCompilationError(error) {
     $('#Error').html(error);
 }
 
+function viewPrepareBeforeTest() {
+    $('#howWork').attr('hidden');
+    $("#SubmitButton").attr('src', 'img/buttons/Submit_active.png');
+};
+
+function viewTestProcessRuntimeTest() {
+    var TestProcess = $('#TestProcess');
+    TestProcess.removeAttr('hidden');
+    TestProcess.html('Testing... Do not close the page.');
+};
+
+function viewTestProcessAfterTest() {
+    var TestProcess = $('#TestProcess');
+    TestProcess.html('Done.');
+};
+
+function viewPrepareAfterTest() {
+    $("#SubmitButton").attr('src', 'img/buttons/Submit_default.png');
+};
+
 function PrintTableHead() {
     var ResultTable = $('#ResultTable');
     ResultTable.html("<tr>\
