@@ -24,12 +24,15 @@
 
 function Compile(Code) {
     try {
-        var f = eval('(' + Code + ')');
+        eval(Code);
     } catch(error) {
-        observable.publish({'message':'ERROR', 'error':error});
-        //PrintCompilationError(error);
-        return false;
+        if (error) {
+            observable.publish({'message':'ERROR', 'error':error});
+            //PrintCompilationError(error);
+            return false;
+        }
     }
+    var f = eval('(' + Code + ')');
     return f;
 }
 

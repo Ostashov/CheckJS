@@ -60,14 +60,19 @@ observable.subscribe(function Commander(data) {
         PrintTableHead()
     } else if (data.message === 'Done') {
         viewTestProcessAfterTest();
-        viewPrepareAfterTest()
+        viewPrepareAfterTest();
     } else if (data.message === 'ERROR') {
         PrintCompilationError(data.error);
     } else if (data.message === 'Finish one test') {
         PrintTestResult(data.TestNumber, data.testReport, data.test);
+    } else if (data.message === 'noCode') {
+        PrintNoCode();
     }
 });
 
+function PrintNoCode() {
+    $('#Error').html('Введите код');
+}
 
 function PrintCompilationError(error) {
     $('#Error').html(error);

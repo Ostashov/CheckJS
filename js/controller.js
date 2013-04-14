@@ -21,7 +21,11 @@
         myCodeMirror.CodeMirror.save();
         var ProblemId = $('#ProblemId').val();
         var Code = $('#Code').val();
-        TestProblem(ProblemId, Code);
+        if (!Code) {
+            observable.publish({'message':'noCode'});
+        } else {
+            TestProblem(ProblemId, Code);
+        }
         return false;
     });
     
