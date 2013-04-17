@@ -5,51 +5,48 @@
     <script type="text/javascript" src="js/problems/1-10.js"></script>
     <script src="codemirror/lib/codemirror.js"></script>
     <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="codemirror/mode/javascript/javascript.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/css.css">  
+    <!-- <link rel="stylesheet" type="text/css" href="css/css.css">-->
     <script type="text/javascript" src="js/model.js"></script>
     <script type="text/javascript" src="js/view.js"></script>
     <script type="text/javascript" src="js/controller.js"></script>
 </head>
 <body>
-    <div class="wrapper">
-        <div id="Head">
-            <div id="headLogo"><a id="LogoLinkHead" href="index.html"><img src="img/logos/headLogo_187x30.png"></a></div>
+    <div class="container">
+        <div class="row">
+            <div class="span12"><a href="index.html">CheckJS</a></div>
         </div>
-        <div id="LeftTop">
-            <form action='' method=post enctype=multipart/form-data>
-            <div class="BlockName">Select problem:</div><select id="ProblemId">
-            </select>
-            <div id="ProblemTask">
+        <div class="row">
+            <div class="span2">
+                <form action='' method=post enctype=multipart/form-data>
+                    <h5>Select problem:</h5>
+                    <select id="ProblemId" class="span2"></select>
             </div>
-            <div id="ProblemSamples">
+            <div class="span10">
+                <div id="howWork" class="well well-small">
+                            <h4>Добро пожаловать в систему проверки задач на JavaScript!</h5>
+                            1. Виберите задачу<br>
+                            2. Напишите ваш код в окошке<br>
+                            3. Нажмите кнопку "Submit"<br>
+                            Удачной работы! Администрация CheckJS.
+                </div>
+                <div id="ProblemTask"></div>
+                <div id="ProblemSamples"></div>
+                <h5>Code:</h5>
+                <textarea id='Code' rows="10" ></textarea><br>
+                <input type="button" class="btn btn-success" id='SubmitButton' value='Submit'>
+                <a href="index.html"><input type="button" class="btn" value='To cancel all changes'></a>
+                <div id="Error"></div>
+                </form>
+                        <div id="ResultContent">
+                            <h4 id="TestProcess" hidden="true"></h4>
+                            <table id='ResultTable' class="table table-condensed table-bordered hide">
+                            </table>
+                        </div>
             </div>
-            <div class="BlockName">Code:</div><textarea id='Code' rows="10" ></textarea><br>
-            <input type=image src="img/buttons/Submit_default.png" id='SubmitButton' value='Submit'><div id="Error"></div>
-            </form>
         </div>
-        <div id="RightTop">
-            <div id="howWork" align="center">
-                Добро пожаловать в систему проверки задач на JavaScript!
-                <ol align="left">
-                <li>Выберите задачу</li>
-                <li>Напишите ваш код в окошке</li>
-                <li>Нажмите кнопку "Submit"</li>
-                </ol>
-                Удачной работы! Администрация CheckJS.
-            </div>
-            <div id="ResultContent">
-                <p id="TestProcess" hidden="true"></p>
-                <table id='ResultTable'>
-                </table>
-            </div>
-        </div>
-        <div style="clear:both;"></div>
-    </div>
-    <div id="Footer">
-            <div id="FooterDescription">Testing system for JavaScript problems.</div>
     </div>
 </body>
-</html>    
-    
+</html>

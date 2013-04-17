@@ -22,16 +22,21 @@ function ShowTask(problem) {
 
 function ShowSamples(problem) {
     var samples = $('#ProblemSamples');
-    samples.html('<div class="BlockName">Sample:</div>' + "<table id='SampleTable'><tr>\
-    <td class='TableHead'>Data</td>\
-    <td class='TableHead'>Answer</td>\
-    </tr></table>");
+    samples.html('<h5>Sample:</h5>' + "<table id='SampleTable' class='table table-condensed table-bordered'>\
+        <thead>\
+            <tr>\
+                <th>Data</th>\
+                <th>Answer</th>\
+            </tr>\
+        </thead></table>");
     var Sample = $("#SampleTable");
+    Sample.append('<tbody>')
     for (TestNumber = 0; TestNumber < problem.tests.length; TestNumber++) {
         if (problem.tests[TestNumber].sample === true) {
             Sample.append('<tr><td>' + problem.tests[TestNumber].data + '</td><td>' + problem.tests[TestNumber].answer + '</td></tr>');
         }
     }
+    Sample.append('</tbody>')
 }
 
 function ShowCode(problem) {
@@ -80,7 +85,7 @@ function PrintCompilationError(error) {
 
 function viewPrepareBeforeTest() {
     $('#howWork').attr('hidden');
-    $("#SubmitButton").attr('src', 'img/buttons/Submit_active.png');
+   //$("#SubmitButton").attr('src', 'img/buttons/Submit_active.png');
 };
 
 function viewTestProcessRuntimeTest() {
@@ -95,29 +100,44 @@ function viewTestProcessAfterTest() {
 };
 
 function viewPrepareAfterTest() {
-    $("#SubmitButton").attr('src', 'img/buttons/Submit_default.png');
+    $('#SubmitButton').removeClass('disabled');
+    $('#SubmitButton').removeAttr('disabled');
+    //$("#SubmitButton").attr('src', 'img/buttons/Submit_default.png');
 };
 
 function PrintTableHead() {
     var ResultTable = $('#ResultTable');
-    ResultTable.html("<tr>\
-        <td class='TableHead'>Test</td>\
-        <td class='TableHead'>Data</td>\
-        <td class='TableHead'>User response</td>\
-        <td class='TableHead'>Answer</td>\
-        <td class='TableHead'>Result</td>\
-        <td class='TableHead'>Time, ms</td>\
+    ResultTable.removeClass('hide');
+    ResultTable.html("<thead><tr>\
+        <th>Test</th>\
+        <th>Data</th>\
+        <th>User response</th>\
+        <th>Answer</th>\
+        <th>Result</th>\
+        <th>Time, ms</th>\
         </tr>");
 }
 
 function PrintTestResult(testNumber, testReport, test) {
     var ResultTable = $('#ResultTable');
-    ResultTable.append("<tr class='Result" + testReport.result + "'>\
-    <td><center>" + (testNumber+1) + "</center></td>\
-    <td>" + test.data + "</td>\
-    <td>" + testReport.user_answer + "</td>\
-    <td>" + test.answer + "</td>\
-    <td><center>" + testReport.result + "</center></td>\
-    <td>" + testReport.testTime + "</td>\
-    </tr>");
+    if (testReport.result === 'OK') {
+        ResultTable.append("<tr class='success'>\
+        <td>" + (testNumber+1) + "</td>\
+        <td>" + test.data + "</td>\
+        <td>" + testReport.user_answer + "</td>\
+        <td>" + test.answer + "</td>\
+        <td>" + testReport.result + "</td>\
+        <td>" + testReport.testTime + "</td>\
+        </tr>")
+    } else {
+        ResultTable.append("<tr class='error'>\
+        <td>" + (testNumber+1) + "</td>\
+        <td>" + test.data + "</td>\
+        <td>" + testReport.user_answer + "</td>\
+        <td>" + test.answer + "</td>\
+        <td>" + testReport.result + "</td>\
+        <td>" + testReport.testTime + "</td>\
+        </tr>");
+    }
+    
 }

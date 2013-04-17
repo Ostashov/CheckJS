@@ -1,16 +1,16 @@
 ﻿$(document).ready(function() {
-    $('#SubmitButton').mouseover(function() {
-        $(this).attr('src', 'img/buttons/Submit_hover.png')
-    });
-    $('#SubmitButton').mouseout(function() {
-        $(this).attr('src', 'img/buttons/Submit_default.png')
-    });
-    $('#SubmitButton').mousedown(function() {
-        $(this).attr('src', 'img/buttons/Submit_active.png')
-    });
-    $('#SubmitButton').mouseup(function() {
-        $(this).attr('src', 'img/buttons/Submit_hover.png')
-    });
+    // $('#SubmitButton').mouseover(function() {
+    //     $(this).attr('src', 'img/buttons/Submit_hover.png')
+    // });
+    // $('#SubmitButton').mouseout(function() {
+    //     $(this).attr('src', 'img/buttons/Submit_default.png')
+    // });
+    // $('#SubmitButton').mousedown(function() {
+    //     $(this).attr('src', 'img/buttons/Submit_active.png')
+    // });
+    // $('#SubmitButton').mouseup(function() {
+    //     $(this).attr('src', 'img/buttons/Submit_hover.png')
+    // });
     
     $('#SubmitButton').click(function() {
         $('#howWork').attr('hidden', 'true');
@@ -24,6 +24,8 @@
         if (!Code) {
             observable.publish({'message':'noCode'});
         } else {
+            $('#SubmitButton').addClass('disabled');
+            $('#SubmitButton').attr('disabled');
             TestProblem(ProblemId, Code);
         }
         return false;
@@ -39,5 +41,7 @@
         ShowStatement(problems[this.value]);
         $('#howWork').removeAttr('hidden');
         $('#TestProcess').attr('hidden', 'true');
+        var ResultTable = $('#ResultTable');
+        ResultTable.addClass('hide');
     });
 });
