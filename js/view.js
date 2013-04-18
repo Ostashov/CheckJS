@@ -60,7 +60,7 @@ observable.subscribe(function Commander(data) {
         PrintTableHead()
     } else if (data.message === 'Done') {
         viewTestProcessAfterTest();
-        viewPrepareAfterTest();
+        viewPrepareAfterTest(data.countTest);
     } else if (data.message === 'ERROR') {
         PrintCompilationError(data.error);
     } else if (data.message === 'Finish one test') {
@@ -94,8 +94,11 @@ function viewTestProcessAfterTest() {
     TestProcess.html('Done.');
 };
 
-function viewPrepareAfterTest() {
+function viewPrepareAfterTest(countTest) {
     $("#SubmitButton").attr('src', 'img/buttons/Submit_default.png');
+    countTest.complete = countTest.error + countTest.success + countTest.unsuccess;
+    $("#counterTest").html(countTest.complete + '/' + countTest.all + ' succeeded' + '<br>OK: ' + countTest.success + '<br>NO: ' + countTest.unsuccess + '<br>FAIL: ' + countTest.error);
+    $("#counterTest").removeAttr('hidden');
 };
 
 function PrintTableHead() {
@@ -112,12 +115,12 @@ function PrintTableHead() {
 
 function PrintTestResult(testNumber, testReport, test) {
     var ResultTable = $('#ResultTable');
-    ResultTable.append("<tr class='Result" + testReport.result + "'>\
+    ResultTable.append("<tr class='Result" + testReport.result.result + "'>\
     <td><center>" + (testNumber+1) + "</center></td>\
     <td>" + test.data + "</td>\
     <td>" + testReport.user_answer + "</td>\
     <td>" + test.answer + "</td>\
-    <td><center>" + testReport.result + "</center></td>\
+    <td><center>" + testReport.result.result + "</center></td>\
     <td>" + testReport.testTime + "</td>\
     </tr>");
 }

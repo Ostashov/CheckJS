@@ -38,6 +38,7 @@
     $('#ProblemId').change(function() {
         ShowStatement(problems[this.value]);
         $('#howWork').removeAttr('hidden');
+        $("#counterTest").attr('hidden', 'true');
         $('#TestProcess').attr('hidden', 'true');
     });
 });

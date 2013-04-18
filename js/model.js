@@ -1,7 +1,13 @@
 ﻿function TestProblem(id, Code) {
     observable.publish({'message':'Start compile'});
     //viewPrepareBeforeTest()
-    
+    var countTest = {
+        'complete': 0,
+        'all': problems[id].tests.length,
+        'success': 0,
+        'unsuccess': 0,
+        'error': 0
+    }
     var func = Compile(Code);
     if (func) {
         observable.publish({'message':'Start testing'});
@@ -9,10 +15,10 @@
         //PrintTableHead();
         var problemReport = [];
         for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
-            problemReport[TestNumber] = setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
+            problemReport[TestNumber] = setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func, countTest)
         }
         setTimeout(function() {
-            observable.publish({'message':'Done'});
+            observable.publish({'message':'Done', 'countTest':countTest});
             //viewTestProcessAfterTest()
         }, 0);
     }
@@ -36,14 +42,16 @@ function Compile(Code) {
     return f;
 }
 
-function RunTest(TestNumber, test, func) {
+function RunTest(TestNumber, test, func, countTest) {
     var testReport = RunFunction(test.data, func);
     if (testReport.result !== 'ERROR') {
-        testReport.result = CheckResult(testReport.user_answer, test.answer);
+        testReport.result = CheckResult(testReport.user_answer, test.answer, countTest);
+    } else {
+        countTest.error = countTest.error + 1;
     }
     observable.publish({'message':'Finish one test', 'TestNumber':TestNumber, 'testReport':testReport, 'test':test});
     //PrintTestResult(TestNumber, testReport, test);
-    return testReport;
+    return {'testReport':testReport, 'countTest':countTest};
 }
 
 function RunFunction(data, func) {
@@ -58,13 +66,15 @@ function RunFunction(data, func) {
     return {"user_answer":user_answer, "testTime":EndTime - StartTime};
 }
 
-function CheckResult(user_answer, answer) {
+function CheckResult(user_answer, answer, countTest) {
     if (user_answer === answer) {
         var result = 'OK';
+        countTest.success = countTest.success + 1;
     } else {
         var result = 'NO';
+        countTest.unsuccess = countTest.unsuccess + 1;
     }
-    return result;
+    return {'result':result, 'countTest':countTest};
 }
 
 var observable = {
