@@ -21,9 +21,11 @@
         myCodeMirror.CodeMirror.save();
         var ProblemId = $('#ProblemId').val();
         var Code = $('#Code').val();
-        
-        $.post('http://contest.mccme.ru:8080', {'ProblemId':ProblemId, 'Code':Code}, function() {observable.publish({'message':'Done'});}, 'json');
-        //TestProblem(ProblemId, Code);
+        function postFunc() {
+            observable.publish({'message':'Done'});
+        }
+        //$.post('http://contest.mccme.ru:8080', {'ProblemId':ProblemId, 'Code':Code}, postFunc, 'text');
+        TestProblem(ProblemId, Code);
         return false;
     });
     

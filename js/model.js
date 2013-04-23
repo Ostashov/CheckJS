@@ -9,7 +9,9 @@
         //PrintTableHead();
         var problemReport = [];
         for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
-            problemReport[TestNumber] = setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
+            problemReport[TestNumber] = $.post('http://contest.mccme.ru:8080', {'a':'a'});
+            //{"TestNumber":TestNumber, "test":problems[id].tests[TestNumber], "func":func});
+            //setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
         }
         setTimeout(function() {
             observable.publish({'message':'Done'});

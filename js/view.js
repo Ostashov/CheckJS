@@ -91,6 +91,7 @@ function viewTestProcessAfterTest() {
 
 function viewPrepareAfterTest() {
     $("#SubmitButton").attr('src', 'img/buttons/Submit_default.png');
+    $('#TestProcess').removeAttr('hidden');
 };
 
 function PrintTableHead() {
