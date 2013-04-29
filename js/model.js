@@ -38,7 +38,14 @@ function Compile(Code) {
             return false;
         }
     }
-    var f = eval('(' + Code + ')');
+    try {
+        var f = eval('(' + Code + ')');
+    } catch(error) {
+        if (error) {
+            observable.publish({'message':'ERROR', 'error':error});
+            return false;
+        }
+    }
     return f;
 }
 
