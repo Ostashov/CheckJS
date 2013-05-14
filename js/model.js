@@ -9,10 +9,14 @@
         //PrintTableHead();
         var problemReport = [];
         for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
-            problemReport[TestNumber] = $.post('http://contest.mccme.ru:8080', {'TestNumber':TestNumber,'test':problems[id].tests[TestNumber],'Code':Code});
+            problemReport[TestNumber] = $.post('http://contest.mccme.ru:8080', {'id':id,'TestNumber':TestNumber,'test':problems[id].tests[TestNumber],'Code':Code}, function(testReport) {
+                    alert(problems[testReport.id].tests[TestNumber]);
+                    observable.publish({'message':'Finish one test', 'TestNumber':testReport.TestNumber, 'testReport':testReport, 'test':problems[testReport.id].tests[testReport.TestNumber]});
+            }, 'json');
             //{"TestNumber":TestNumber, "test":problems[id].tests[TestNumber], "func":func});
             //setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
         }
+
         setTimeout(function() {
             observable.publish({'message':'Done'});
             //viewTestProcessAfterTest()
@@ -39,6 +43,7 @@ function RunTest(TestNumber, test, func) {
     var testReport = RunFunction(test.data, func);
     if (testReport.result !== 'ERROR') {
         testReport.result = CheckResult(testReport.user_answer, test.answer);
+        alert(testReport.result);
     }
     observable.publish({'message':'Finish one test', 'TestNumber':TestNumber, 'testReport':testReport, 'test':test});
     //PrintTestResult(TestNumber, testReport, test);

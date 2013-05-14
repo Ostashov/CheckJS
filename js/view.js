@@ -109,7 +109,7 @@ function PrintTableHead() {
 function PrintTestResult(testNumber, testReport, test) {
     var ResultTable = $('#ResultTable');
     ResultTable.append("<tr class='Result" + testReport.result + "'>\
-    <td><center>" + (testNumber+1) + "</center></td>\
+    <td><center>" + (+testNumber+1) + "</center></td>\
     <td>" + test.data + "</td>\
     <td>" + testReport.user_answer + "</td>\
     <td>" + test.answer + "</td>\
