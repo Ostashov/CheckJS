@@ -1,5 +1,7 @@
 ﻿function TestProblem(id, Code) {
     observable.publish({'message':'Start compile'});
+
+//TODO убрать все комментарии
     //viewPrepareBeforeTest()
     var countTest = {
         'complete': 0,
@@ -27,6 +29,8 @@
     //}, 0);
     return problemReport;
 }
+
+//TODO result.result - переделать нормально
 
 function Compile(Code) {
     try {

@@ -22,6 +22,7 @@ function ShowTask(problem) {
 
 function ShowSamples(problem) {
     var samples = $('#ProblemSamples');
+//TODO в html
     samples.html('<div class="BlockName">Sample:</div>' + "<table id='SampleTable'><tr>\
     <td class='TableHead'>Data</td>\
     <td class='TableHead'>Answer</td>\
@@ -79,12 +80,15 @@ function PrintCompilationError(error) {
 }
 
 function viewPrepareBeforeTest() {
+//TODO hide
     $('#howWork').attr('hidden');
+//TODO class
     $("#SubmitButton").attr('src', 'img/buttons/Submit_active.png');
 };
 
 function viewTestProcessRuntimeTest() {
     var TestProcess = $('#TestProcess');
+//TODO unhide
     TestProcess.removeAttr('hidden');
     TestProcess.html('Testing... Do not close the page.');
 };
@@ -95,14 +99,19 @@ function viewTestProcessAfterTest() {
 };
 
 function viewPrepareAfterTest(countTest) {
+//TODO
     $("#SubmitButton").attr('src', 'img/buttons/Submit_default.png');
     countTest.complete = countTest.error + countTest.success + countTest.unsuccess;
+//TODO design
+// OK:     NO:     ERROR: 
     $("#counterTest").html(countTest.complete + '/' + countTest.all + ' succeeded' + '<br>OK: ' + countTest.success + '<br>NO: ' + countTest.unsuccess + '<br>FAIL: ' + countTest.error);
+//TODO
     $("#counterTest").removeAttr('hidden');
 };
 
 function PrintTableHead() {
     var ResultTable = $('#ResultTable');
+//TODO hide/unhide
     ResultTable.html("<tr>\
         <td class='TableHead'>Test</td>\
         <td class='TableHead'>Data</td>\
