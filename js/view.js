@@ -5,7 +5,9 @@
         height: "dynamic",
         enterMode: "keep",
         value: TextArea.innerHTML,
-        mode: "javascript"
+        mode: "javascript",
+        tabSize: 4,
+        indentUnit: 4
     });
     var select = $('#ProblemId');
     for (var ProblemNumber = 1; ProblemNumber < problems.length; ProblemNumber++) {
