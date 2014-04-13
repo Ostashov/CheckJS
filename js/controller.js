@@ -14,8 +14,7 @@
     });
     
     $('#SubmitButton').click(function() {
-//TODO hide
-        $('#howWork').attr('hidden', 'true');
+        $('#howWork').hide();
         $('#ResultTable').html('');
         $('#TestProcess').html('');
         $('#Error').html('');
@@ -39,10 +38,8 @@
     
     $('#ProblemId').change(function() {
         ShowStatement(problems[this.value]);
-//TODO unhide
-        $('#howWork').removeAttr('hidden');
-//TODO hide
-        $("#counterTest").attr('hidden', 'true');
-        $('#TestProcess').attr('hidden', 'true');
+        $('#howWork').show();
+        $("#counterTest").hide();
+        $('#TestProcess').hide();
     });
 });

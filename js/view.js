@@ -82,16 +82,14 @@ function PrintCompilationError(error) {
 }
 
 function viewPrepareBeforeTest() {
-//TODO hide
-    $('#howWork').attr('hidden');
+    $('#howWork').hide();
 //TODO class
     $("#SubmitButton").attr('src', 'img/buttons/Submit_active.png');
 };
 
 function viewTestProcessRuntimeTest() {
     var TestProcess = $('#TestProcess');
-//TODO unhide
-    TestProcess.removeAttr('hidden');
+    TestProcess.show();
     TestProcess.html('Testing... Do not close the page.');
 };
 
@@ -107,8 +105,7 @@ function viewPrepareAfterTest(countTest) {
 //TODO design
 // OK:     NO:     ERROR: 
     $("#counterTest").html(countTest.complete + '/' + countTest.all + ' succeeded' + '<br>OK: ' + countTest.success + '<br>NO: ' + countTest.unsuccess + '<br>FAIL: ' + countTest.error);
-//TODO
-    $("#counterTest").removeAttr('hidden');
+    $("#counterTest").show();
 };
 
 function PrintTableHead() {
