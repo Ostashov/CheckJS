@@ -1,8 +1,6 @@
 ﻿function TestProblem(id, Code) {
     observable.publish({'message':'Start compile'});
 
-//TODO убрать все комментарии
-    //viewPrepareBeforeTest()
     var countTest = {
         'complete': 0,
         'all': problems[id].tests.length,
@@ -13,20 +11,14 @@
     var func = Compile(Code);
     if (func) {
         observable.publish({'message':'Start testing'});
-        //viewTestProcessRuntimeTest()
-        //PrintTableHead();
         var problemReport = [];
         for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
             problemReport[TestNumber] = setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func, countTest)
         }
         setTimeout(function() {
             observable.publish({'message':'Done', 'countTest':countTest});
-            //viewTestProcessAfterTest()
         }, 0);
     }
-    //setTimeout(function () {
-    //    viewPrepareAfterTest()
-    //}, 0);
     return problemReport;
 }
 
@@ -38,7 +30,6 @@ function Compile(Code) {
     } catch(error) {
         if (error) {
             observable.publish({'message':'ERROR', 'error':error});
-            //PrintCompilationError(error);
             return false;
         }
     }
@@ -61,7 +52,6 @@ function RunTest(TestNumber, test, func, countTest) {
         countTest.error = countTest.error + 1;
     }
     observable.publish({'message':'Finish one test', 'TestNumber':TestNumber, 'testReport':testReport, 'test':test});
-    //PrintTestResult(TestNumber, testReport, test);
     return {'testReport':testReport, 'countTest':countTest};
 }
 
