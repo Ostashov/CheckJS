@@ -9,7 +9,7 @@
         tabSize: 4,
         indentUnit: 4
     });
-    var select = $('#problemId');
+    var select = $('#ProblemId');
     for (var ProblemNumber = 1; ProblemNumber < problems.length; ProblemNumber++) {
         select.append($('<option value="' + ProblemNumber + '">' + ProblemNumber + '. ' + problems[ProblemNumber].name + '</option>'));
     }
@@ -25,14 +25,14 @@ function ShowTask(problem) {
 function ShowSamples(problem) {
     var samples = $('#ProblemSamples');
 //TODO в html
-    samples.html('<div class="blockName">Sample:</div>' + "<table id='SampleTable'><tr>\
+    samples.html('<div class="BlockName">Sample:</div>' + "<table id='SampleTable'><tr>\
     <td class='TableHead'>Data</td>\
     <td class='TableHead'>Answer</td>\
     </tr></table>");
     var Sample = $("#SampleTable");
-    for (testNumber = 0; testNumber < problem.tests.length; testNumber++) {
-        if (problem.tests[testNumber].sample === true) {
-            Sample.append('<tr><td>' + problem.tests[testNumber].data + '</td><td>' + problem.tests[testNumber].answer + '</td></tr>');
+    for (TestNumber = 0; TestNumber < problem.tests.length; TestNumber++) {
+        if (problem.tests[TestNumber].sample === true) {
+            Sample.append('<tr><td>' + problem.tests[TestNumber].data + '</td><td>' + problem.tests[TestNumber].answer + '</td></tr>');
         }
     }
 }
@@ -67,7 +67,7 @@ observable.subscribe(function Commander(data) {
     } else if (data.message === 'ERROR') {
         PrintCompilationError(data.error);
     } else if (data.message === 'Finish one test') {
-        PrintTestResult(data.testNumber, data.testReport, data.test);
+        PrintTestResult(data.TestNumber, data.testReport, data.test);
     } else if (data.message === 'noCode') {
         PrintNoCode();
     }
