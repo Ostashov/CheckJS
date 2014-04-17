@@ -20,23 +20,23 @@
         $('#Error').html('');
         var myCodeMirror = $('.CodeMirror')[0];
         myCodeMirror.CodeMirror.save();
-        var ProblemId = $('#ProblemId').val();
+        var problemId = $('#problemId').val();
         var Code = $('#Code').val();
         if (!Code) {
             observable.publish({'message':'noCode'});
         } else {
-            TestProblem(ProblemId, Code);
+            testProblem(problemId, Code);
         }
         return false;
     });
     
-    $('#ProblemId').focus(function() {
+    $('#problemId').focus(function() {
         var myCodeMirror = $('.CodeMirror')[0];
         myCodeMirror.CodeMirror.save();
-        problems[$('#ProblemId').val()].code = $('#Code').val();
+        problems[$('#problemId').val()].code = $('#Code').val();
     });
     
-    $('#ProblemId').change(function() {
+    $('#problemId').change(function() {
         ShowStatement(problems[this.value]);
         $('#howWork').show();
         $("#counterTest").hide();

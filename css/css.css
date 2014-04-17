@@ -18,7 +18,7 @@ html, body {
     margin: 0 auto -51px auto !important;
 }
 
-#LeftTop {
+#leftTop {
     float:left;
     width: 400px;
     padding: 10px;
@@ -79,7 +79,7 @@ td {
 }
 
 /*--HEAD--*/
-#Head {
+#head {
     float: none;
     height: 50px;
     width: 1000px;
@@ -94,13 +94,16 @@ td {
     margin-left: 10px;
 }
 
-#LogoLinkHead:link, #LogoLinkHead:visited, #LogoLinkHead:hover, #LogoLinkHead:active {
+#logoLinkHead:link,
+#logoLinkHead:visited,
+#logoLinkHead:hover,
+#logoLinkHead:active {
     color: #ffffff;
     text-decoration:none;
 }
 
 /*--CONTENT--*/
-.BlockName {
+.blockName {
     font-size: 14pt;
     font-family: DinPro-Medium;
     text-transform: uppercase;
