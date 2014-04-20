@@ -1,45 +1,45 @@
 ﻿$(document).ready(function() {
 //TODO
-    $('#SubmitButton').mouseover(function() {
+    $('#submitButton').mouseover(function() {
         $(this).attr('src', 'img/buttons/Submit_hover.png')
     });
-    $('#SubmitButton').mouseout(function() {
+    $('#submitButton').mouseout(function() {
         $(this).attr('src', 'img/buttons/Submit_default.png')
     });
-    $('#SubmitButton').mousedown(function() {
+    $('#submitButton').mousedown(function() {
         $(this).attr('src', 'img/buttons/Submit_active.png')
     });
-    $('#SubmitButton').mouseup(function() {
+    $('#submitButton').mouseup(function() {
         $(this).attr('src', 'img/buttons/Submit_hover.png')
     });
     
-    $('#SubmitButton').click(function() {
+    $('#submitButton').click(function() {
         $('#howWork').hide();
-        $('#ResultTable').html('');
-        $('#TestProcess').html('');
+        $('#resultTable').html('');
+        $('#testProcess').html('');
         $('#Error').html('');
         var myCodeMirror = $('.CodeMirror')[0];
         myCodeMirror.CodeMirror.save();
-        var ProblemId = $('#ProblemId').val();
+        var problemId = $('#problemId').val();
         var Code = $('#Code').val();
         if (!Code) {
             observable.publish({'message':'noCode'});
         } else {
-            TestProblem(ProblemId, Code);
+            testProblem(problemId, Code);
         }
         return false;
     });
     
-    $('#ProblemId').focus(function() {
+    $('#problemId').focus(function() {
         var myCodeMirror = $('.CodeMirror')[0];
         myCodeMirror.CodeMirror.save();
-        problems[$('#ProblemId').val()].code = $('#Code').val();
+        problems[$('#problemId').val()].code = $('#Code').val();
     });
     
-    $('#ProblemId').change(function() {
-        ShowStatement(problems[this.value]);
+    $('#problemId').change(function() {
+        showStatement(problems[this.value]);
         $('#howWork').show();
         $("#counterTest").hide();
-        $('#TestProcess').hide();
+        $('#testProcess').hide();
     });
 });
