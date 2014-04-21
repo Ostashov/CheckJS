@@ -24,11 +24,7 @@ function showTask(problem) {
 
 function showSamples(problem) {
     var samples = $('#problemSamples');
-//TODO в html
-    samples.html('<div class="blockName">Sample:</div>' + "<table id='sampleTable'><tr>\
-    <td class='tableHead'>Data</td>\
-    <td class='tableHead'>Answer</td>\
-    </tr></table>");
+    samples.show();
     var Sample = $("#sampleTable");
     for (testNumber = 0; testNumber < problem.tests.length; testNumber++) {
         if (problem.tests[testNumber].sample === true) {

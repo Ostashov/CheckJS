@@ -23,7 +23,14 @@
             </select>
             <div id="problemTask">
             </div>
-            <div id="problemSamples">
+            <div id="problemSamples" hidden>
+                <div class="blockName">Sample:</div>
+                <table id='sampleTable'>
+                    <tr>
+                        <td class='tableHead'>Data</td>
+                        <td class='tableHead'>Answer</td>
+                    </tr>
+                </table>
             </div>
             <div class="blockName">Code:</div><textarea id='Code' rows="10" ></textarea><br>
             <input type=image src="img/buttons/Submit_default.png" id='submitButton' value='Submit'><div id="Error"></div>
