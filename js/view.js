@@ -98,9 +98,7 @@ function viewPrepareAfterTest(countTest) {
 //TODO
     $("#submitButton").attr('src', 'img/buttons/Submit_default.png');
     countTest.complete = countTest.error + countTest.success + countTest.unsuccess;
-//TODO design
-// OK:     NO:     ERROR: 
-    $("#counterTest").html(countTest.complete + '/' + countTest.all + ' succeeded' + '<br>OK: ' + countTest.success + '<br>NO: ' + countTest.unsuccess + '<br>FAIL: ' + countTest.error);
+    $("#counterTest").html(countTest.complete + '/' + countTest.all + ' succeeded' + '<br/>OK: ' + countTest.success + '&#32;&#32;&#32;&#32;NO: ' + countTest.unsuccess + '&#32;&#32;&#32;&#32;FAIL: ' + countTest.error);
     $("#counterTest").show();
 };
 
