@@ -26,6 +26,10 @@ function showSamples(problem) {
     var samples = $('#problemSamples');
     samples.show();
     var Sample = $("#sampleTable");
+    Sample.html("<tr>\
+                    <td class='tableHead'>Data</td>\
+                    <td class='tableHead'>Answer</td>\
+                </tr>");
     for (testNumber = 0; testNumber < problem.tests.length; testNumber++) {
         if (problem.tests[testNumber].sample === true) {
             Sample.append('<tr><td>' + problem.tests[testNumber].data + '</td><td>' + problem.tests[testNumber].answer + '</td></tr>');
