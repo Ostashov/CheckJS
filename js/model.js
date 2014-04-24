@@ -60,7 +60,7 @@ function runFunction(data, func) {
     try {
         var user_answer = func(data);
     } catch(error) {
-        return {"result":'ERROR'};
+        return {"result": {"result":'ERROR'}};
     }
     var endTime = new Date;
     
