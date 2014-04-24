@@ -15,6 +15,8 @@
     
     $('#submitButton').click(function() {
         $('#howWork').hide();
+        $("#counterTest").hide();
+        $('#testProcess').hide();
         $('#resultTable').html('');
         $('#testProcess').html('');
         $('#Error').html('');

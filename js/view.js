@@ -75,10 +75,12 @@ observable.subscribe(function Commander(data) {
 
 function printNoCode() {
     $('#Error').html('Введите код');
+    $('#howWork').show();
 }
 
 function printCompilationError(error) {
     $('#Error').html(error);
+    $('#howWork').show();
 }
 
 function viewPrepareBeforeTest() {
