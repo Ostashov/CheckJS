@@ -69,8 +69,12 @@ td {
 }
 
 .resultERROR {
-    background-color: rgb(255, 235, 237);
+    background-color: rgb(255, 255, 255);
 }
+
+    .resultERROR :last-child text {
+        visibility: hidden;
+    }
 
 .tableHead {
 	background: #e5e5e5;

@@ -129,6 +129,6 @@ function printTestResult(testNumber, testReport, test) {
     <td>" + testReport.user_answer + "</td>\
     <td>" + test.answer + "</td>\
     <td><center>" + testReport.result.result + "</center></td>\
-    <td>" + testReport.testTime + "</td>\
+    <td><text>" + testReport.testTime + "</text></td>\
     </tr>");
 }

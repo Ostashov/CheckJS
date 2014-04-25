@@ -46,10 +46,11 @@ function compile(Code) {
 
 function runTest(testNumber, test, func, countTest) {
     var testReport = runFunction(test.data, func);
-    if (testReport.result !== 'ERROR') {
+    if (!('result' in testReport)) {
         testReport.result = checkResult(testReport.user_answer, test.answer, countTest);
     } else {
         countTest.error = countTest.error + 1;
+        testReport.result = {'result': 'ERROR'};
     }
     observable.publish({'message':'Finish one test', 'testNumber':testNumber, 'testReport':testReport, 'test':test});
     return {'testReport':testReport, 'countTest':countTest};
@@ -60,7 +61,7 @@ function runFunction(data, func) {
     try {
         var user_answer = func(data);
     } catch(error) {
-        return {"result": {"result":'ERROR'}};
+        return {"result": 'ERROR'}; // testReport.result.result = 'ERROR' in runTest()
     }
     var endTime = new Date;
     
