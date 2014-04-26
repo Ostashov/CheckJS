@@ -1,6 +1,6 @@
 "use strict";
 var sets = [];
 sets[1] = {
-    'title': 'MosOlymp 2014',
-    'url': 'http://yadi.sk/d/ThLI-TRILoafQ'
+    'title': 'Example',
+    'url': 'js/problems/1-10.js'
 };

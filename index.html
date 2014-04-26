@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>CheckJS</title>
-    <script type="text/javascript" src="js/problems/1-10.js"></script>
     <script type="text/javascript" src="js/problems/sets.js"></script>
     <script src="codemirror/lib/codemirror.js"></script>
     <link rel="stylesheet" href="codemirror/lib/codemirror.css">
@@ -20,9 +19,9 @@
         </div>
         <div id="leftTop">
             <form action='' method=post enctype=multipart/form-data>
-            <div class="blockName">Select set:</div><select id="setId">
+            <div class="blockName">Select contest:</div><select id="setId">
             </select>
-            <div class="blockName">Select problem:</div><select id="problemId">
+            <div class="blockName" id="problemBlockName" hidden>Select problem:</div><select id="problemId" hidden>
             </select>
             <div id="problemTask">
             </div>
