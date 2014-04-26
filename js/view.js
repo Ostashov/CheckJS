@@ -9,9 +9,13 @@
         tabSize: 4,
         indentUnit: 4
     });
-    var select = $('#problemId');
+    var selectSet = $('#setId');
+    for (var setNumber = 1; setNumber < sets.length; setNumber++) {
+        selectSet.append($('<option value="' + setNumber + '">' + sets[setNumber].title + '</option>'));
+    }
+    var selectProblem = $('#problemId');
     for (var problemNumber = 1; problemNumber < problems.length; problemNumber++) {
-        select.append($('<option value="' + problemNumber + '">' + problemNumber + '. ' + problems[problemNumber].name + '</option>'));
+        selectProblem.append($('<option value="' + problemNumber + '">' + problemNumber + '. ' + problems[problemNumber].name + '</option>'));
     }
     showStatement(problems[1]);
 });
