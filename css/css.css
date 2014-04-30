@@ -9,6 +9,11 @@ html, body {
     height: 100%;
 }
 
+@font-face {
+    font-family: DinPro-Medium;
+    src: url(../fonts/DINPro-Medium.otf);
+}
+
 .wrapper {
     width: 960px;
     min-height: 100%;
@@ -18,7 +23,7 @@ html, body {
     margin: 0 auto -51px auto !important;
 }
 
-#LeftTop {
+#leftTop {
     float:left;
     width: 400px;
     padding: 10px;
@@ -28,7 +33,7 @@ html, body {
     box-shadow: 10px 0 -9px #d7d7d7;
 }
 
-#RightTop {
+#rightTop {
     float:right;
     width: 520px;
     padding: 10px;
@@ -55,31 +60,30 @@ td {
 	word-wrap: break-word;      /* IE 5+ */
 }
 
-.ResultOK {
+.resultOK {
     background-color: rgb(213, 255, 205);
 }
 
-.ResultNO {
+.resultNO {
     background-color: rgb(255, 235, 237);
 }
 
-.ResultERROR {
-    background-color: rgb(255, 235, 237);
+.resultERROR {
+    background-color: rgb(255, 255, 255);
 }
 
-.TableHead {
+    .resultERROR :last-child text {
+        visibility: hidden;
+    }
+
+.tableHead {
 	background: #e5e5e5;
 	text-align: center;
     text-shadow: 1px 1px 0px #fff;
 }
 
-@font-face {
-    font-family: DinPro-Medium;
-    src: url(../fonts/DINPro-Medium.otf);
-}
-
 /*--HEAD--*/
-#Head {
+#head {
     float: none;
     height: 50px;
     width: 1000px;
@@ -94,13 +98,16 @@ td {
     margin-left: 10px;
 }
 
-#LogoLinkHead:link, #LogoLinkHead:visited, #LogoLinkHead:hover, #LogoLinkHead:active {
+#logoLinkHead:link,
+#logoLinkHead:visited,
+#logoLinkHead:hover,
+#logoLinkHead:active {
     color: #ffffff;
     text-decoration:none;
 }
 
 /*--CONTENT--*/
-.BlockName {
+.blockName {
     font-size: 14pt;
     font-family: DinPro-Medium;
     text-transform: uppercase;
@@ -111,7 +118,7 @@ td {
 }
 
 
-#ProblemTask {
+#problemTask {
     border: 1px dashed #d7d7d7;
     padding: 5px;
 	margin-top: 10px;
@@ -121,7 +128,7 @@ td {
     text-align: justify;
 }
 
-#ResultContent {
+#resultContent {
     width: auto;
     margin: 0 auto;
 }
@@ -130,7 +137,7 @@ td {
     margin-top: 15px;
 }
 
-#TestProcess {
+#testProcess {
     width: auto;
     font-size: 14pt;
     font-family: DinPro-Medium;
@@ -141,7 +148,7 @@ td {
     margin-top: 15px;
 }
 
-#ResultTable {
+#resultTable {
     margin: auto;
     overflow: auto;
 }
@@ -158,7 +165,7 @@ td {
     display: table;
 }
 
-#FooterDescription {
+#footerDescription {
     font-style: italic;
     display: table-cell;
     vertical-align: middle;

@@ -1,3 +1,137 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CheckJS</title>
+    <script type="text/javascript" src="js/problems/1-10.js"></script>
+    <script src="codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="css/css.css">-->
+    <script type="text/javascript" src="js/model.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="navbar">
+                    <a class="brand" href="index.html">CheckJS</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                <form action='' method=post enctype=multipart/form-data>
+                    <h5>Select problem:</h5>
+                    <select id="ProblemId" class="span2"></select>
+            </div>
+            <div class="span10">
+                <div id="howWork" class="well well-small">
+                            <h4>Добро пожаловать в систему проверки задач на JavaScript!</h5>
+                            1. Виберите задачу<br>
+                            2. Напишите ваш код в окошке<br>
+                            3. Нажмите кнопку "Submit"<br>
+                            Удачной работы! Администрация CheckJS.
+                </div>
+                <div id="ProblemTask"></div>
+                <div id="ProblemSamples"></div>
+                <h5>Code:</h5>
+                <textarea id='Code' rows="10" ></textarea><br>
+                <input type="button" class="btn btn-success" id='SubmitButton' value='Submit'>
+                <a href="index.html"><input type="button" class="btn" value='To cancel all changes'></a>
+                <div id="Error" class="text-error"></div>
+                </form>
+                        <div id="ResultContent">
+                            <h4 id="TestProcess" hidden="true"></h4>
+                            <table id='ResultTable' class="table table-condensed table-bordered hide">
+                            </table>
+                        </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+=======
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CheckJS</title>
+    <script type="text/javascript" src="js/problems/1-10.js"></script>
+    <script src="codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="codemirror/lib/codemirror.css">
+    <script src="codemirror/mode/javascript/javascript.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/css.css">  
+    <script type="text/javascript" src="js/model.js"></script>
+    <script type="text/javascript" src="js/view.js"></script>
+    <script type="text/javascript" src="js/controller.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="head">
+            <div id="headLogo"><a id="logoLinkHead" href="index.html"><img src="img/logos/headLogo_187x30.png"></a></div>
+        </div>
+        <div id="leftTop">
+            <form action='' method=post enctype=multipart/form-data>
+            <div class="blockName">Select problem:</div><select id="problemId">
+            </select>
+            <div id="problemTask">
+            </div>
+            <div id="problemSamples" hidden>
+                <div class="blockName">Sample:</div>
+                <table id='sampleTable'>
+                </table>
+            </div>
+            <div class="blockName">Code:</div><textarea id='Code' rows="10" ></textarea><br>
+            <input type=image src="img/buttons/Submit_default.png" id='submitButton' value='Submit'><div id="Error"></div>
+            </form>
+        </div>
+        <div id="rightTop">
+            <div id="howWork" align="center">
+                Добро пожаловать в систему проверки задач на JavaScript!
+                <ol align="left">
+                <li>Выберите задачу</li>
+                <li>Напишите ваш код в окошке</li>
+                <li>Нажмите кнопку "Submit"</li>
+                </ol>
+                Удачной работы! Администрация CheckJS.
+            </div>
+            <div id="resultContent">
+                <p id="testProcess" hidden></p>
+                <table id="counterTest" hidden>
+                </table>
+                <table id='resultTable'>
+                </table>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div id="Footer">
+            <div id="footerDescription">Testing system for JavaScript problems.</div>
+            <div id="liveInternet_counter">
+                <!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t14.6;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров за 24"+
+" часа, посетителей за 24 часа и за сегодня' "+
+"border='0' width='88' height='31'><\/a>")
+//--></script><!--/LiveInternet-->
+            </div>
+    </div>
+</body>
+</html>    
+    
+>>>>>>> master
+=======
 ﻿<!DOCTYPE html>
 <html>
 <head>
@@ -50,3 +184,4 @@
     </div>
 </body>
 </html>
+>>>>>>> parent of 87e5a8d... All refactor

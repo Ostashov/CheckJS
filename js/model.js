@@ -1,70 +1,82 @@
-﻿function TestProblem(id, Code) {
+﻿function testProblem(id, Code) {
     observable.publish({'message':'Start compile'});
-    //viewPrepareBeforeTest()
-    
-    var func = Compile(Code);
+
+    var countTest = {
+        'complete': 0,
+        'all': problems[id].tests.length,
+        'success': 0,
+        'unsuccess': 0,
+        'error': 0
+    }
+    var func = compile(Code);
     if (func) {
         observable.publish({'message':'Start testing'});
-        //viewTestProcessRuntimeTest()
-        //PrintTableHead();
         var problemReport = [];
-        for (TestNumber = 0; TestNumber < problems[id].tests.length; TestNumber++) {
-            problemReport[TestNumber] = setTimeout(RunTest, 0, TestNumber, problems[id].tests[TestNumber], func)
+        for (testNumber = 0; testNumber < problems[id].tests.length; testNumber++) {
+            problemReport[testNumber] = setTimeout(runTest, 0, testNumber, problems[id].tests[testNumber], func, countTest)
         }
         setTimeout(function() {
-            observable.publish({'message':'Done'});
-            //viewTestProcessAfterTest()
+            observable.publish({'message':'Done', 'countTest':countTest});
         }, 0);
     }
-    //setTimeout(function () {
-    //    viewPrepareAfterTest()
-    //}, 0);
     return problemReport;
 }
 
-function Compile(Code) {
+//TODO result.result - переделать нормально
+
+function compile(Code) {
     try {
         eval(Code);
     } catch(error) {
         if (error) {
             observable.publish({'message':'ERROR', 'error':error});
-            //PrintCompilationError(error);
             return false;
         }
     }
-    var f = eval('(' + Code + ')');
+    try {
+        var f = eval('(' + Code + ')');
+    } catch(error) {
+        if (error) {
+            observable.publish({'message':'ERROR', 'error':error});
+            return false;
+        }
+    }
     return f;
 }
 
-function RunTest(TestNumber, test, func) {
-    var testReport = RunFunction(test.data, func);
-    if (testReport.result !== 'ERROR') {
-        testReport.result = CheckResult(testReport.user_answer, test.answer);
+function runTest(testNumber, test, func, countTest) {
+    var testReport = runFunction(test.data, func);
+    if (!('result' in testReport)) {
+        testReport.result = checkResult(testReport.user_answer, test.answer, countTest);
+    } else {
+        countTest.error = countTest.error + 1;
+        testReport.result = {'result': 'ERROR'};
     }
-    observable.publish({'message':'Finish one test', 'TestNumber':TestNumber, 'testReport':testReport, 'test':test});
-    //PrintTestResult(TestNumber, testReport, test);
-    return testReport;
+    observable.publish({'message':'Finish one test', 'testNumber':testNumber, 'testReport':testReport, 'test':test});
+    return {'testReport':testReport, 'countTest':countTest};
 }
 
-function RunFunction(data, func) {
-    var StartTime = new Date;
+function runFunction(data, func) {
+    var startTime = new Date;
     try {
         var user_answer = func(data);
     } catch(error) {
-        return {"result":'ERROR'};
+        return {"result": 'ERROR'}; // testReport.result.result = 'ERROR' in runTest()
     }
-    var EndTime = new Date;
+    var endTime = new Date;
     
-    return {"user_answer":user_answer, "testTime":EndTime - StartTime};
+    return {"user_answer":user_answer, "testTime":endTime - startTime};
 }
 
-function CheckResult(user_answer, answer) {
+function checkResult(user_answer, answer, countTest) {
     if (user_answer === answer) {
         var result = 'OK';
+        countTest.success = countTest.success + 1;
     } else {
         var result = 'NO';
+        countTest.unsuccess = countTest.unsuccess + 1;
     }
-    return result;
+    return {'result':result, 'countTest':countTest};
 }
 
 var observable = {
