@@ -13,14 +13,16 @@
     for (var setNumber = 1; setNumber < sets.length; setNumber++) {
         selectSet.append($('<option value="' + setNumber + '">' + sets[setNumber].title + '</option>'));
     }
-    $.getScript('js/problems/1-10.js');
-    var selectProblem = $('#problemId');
-    for (var problemNumber = 1; problemNumber < problems.length; problemNumber++) {
-        selectProblem.append($('<option value="' + problemNumber + '">' + problemNumber + '. ' + problems[problemNumber].name + '</option>'));
-    }
-    $('#problemBlockName').show();
-    selectProblem.show();
-    showStatement(problems[1]);
+    $.getScript('js/problems/1-10.js')
+        .done(function(script, textStatus ) {
+            var selectProblem = $('#problemId');
+            for (var problemNumber = 1; problemNumber < problems.length; problemNumber++) {
+                selectProblem.append($('<option value="' + problemNumber + '">' + problemNumber + '. ' + problems[problemNumber].name + '</option>'));
+            }
+            $('#problemBlockName').show();
+            selectProblem.show();
+            showStatement(problems[1]);
+        });
 });
 
 function showTask(problem) {
